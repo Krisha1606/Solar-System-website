@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+    }
+    header {
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+    h1 {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      color: #00e5ff;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .planets {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 20px;
+      gap: 40px;
+    }
+    .planet {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 220px;
+      box-shadow: 0 4px 25px rgba(0, 200, 255, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .planet:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 30px rgba(0, 255, 255, 0.3);
+    }
+    .planet img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .planet h2 {
+      margin: 12px 0 8px;
+      color: #00e5ff;
+    }
+    .planet p {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      font-size: 0.9em;
+      color: #bbb;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Solar System Explorer 🚀</h1>
+    <p>Explore the wonders of our planetary neighborhood</p>
+  </header>
+
+  <section class="planets">
+    <div class="planet">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg" alt="Mercury">
+      <h2>Mercury</h2>
+      <p>Smallest planet, closest to the Sun.</p>
+    </div>
+
+    <div class="planet">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg" alt="Venus">
+      <h2>Venus</h2>
+      <p>Hot and cloudy, known as Earth's twin.</p>
+    </div>
+
+    <div class="planet">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth">
+      <h2>Earth</h2>
+      <p>Our home planet, the only one with life.</p>
+    </div>
+
+    <div class="planet">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg" alt="Mars">
+      <h2>Mars</h2>
+      <p>Known as the Red Planet with dusty terrain.</p>
+    </div>
+  </section>
+
+  <footer>
+    Created by Krisha Vaghani | Solar System Explorer Project
+  </footer>
+</body>
+</html>

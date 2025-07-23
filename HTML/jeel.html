@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vestrix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Title Animation */
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 40px 0 20px;
+      color: #111;
+      opacity: 0;
+      animation: fadeSlideUp 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      background-color: #000;
+      padding: 10px 0;
+      animation: fadeSlideUp 1.2s ease-out forwards;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #f0c040;
+    }
+
+    .login-button-container {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 40px 0;
+      animation: fadeSlideUp 1.2s ease-out forwards;
+    }
+
+    .login-btn {
+      padding: 6px 14px;
+      background-color: #000;
+      color: #fff;
+      border: 1.5px solid #000;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Home Layout Section */
+    .home-layout {
+      padding: 40px 20px;
+      animation: fadeSlideUp 1.2s ease-out forwards;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #000, #333);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #f0c040;
+      color: #000;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e6b030;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background-color: #d9d7d7;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+            .feature-link {
+            text-decoration: none;
+            color: inherit;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            }      
+
+            .feature-link:hover .feature-card {
+              transform: translateY(-5px);
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+              background-color: #f0f0f0;
+              cursor: pointer;
+            }
+
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+      animation: fadeSlideUp 1.2s ease-out forwards;
+    }
+
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: #f0c040;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+   
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu li {
+        margin: 10px 0;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i>Vestrix</i></h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="arrivals.html">New Arrivals</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="accessories.html">Accessories</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+        <li><a href="giftcard.html">Gift Card</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="login-button-container">
+      <a href="login.html" class="login-btn">Login</a>
+    </div>
+  </header>
+
+  <!-- Home Layout -->
+  <main class="home-layout">
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Welcome to Vestrix</h2>
+        <p>Discover timeless fashion with a modern twist. Explore our new arrivals, curated collections, and stylish accessories.</p>
+        <a href="arrivals.html" class="cta-button">Shop Now</a>
+      </div>
+    </section>
+
+    <section class="features">
+  <a href="arrivals.html" class="feature-link">
+    <div class="feature-card">
+      <h3>New Arrivals</h3>
+      <p>Fresh drops weekly with the latest trends and exclusive designs.</p>
+    </div>
+  </a>
+
+  <a href="collections.html" class="feature-link">
+    <div class="feature-card">
+      <h3>Luxury Collections</h3>
+      <p>Premium handpicked outfits for modern elegance and comfort.</p>
+    </div>
+  </a>
+
+  <a href="accessories.html" class="feature-link">
+    <div class="feature-card">
+      <h3>Style Accessories</h3>
+      <p>Complete your look with our stylish accessories and essentials.</p>
+    </div>
+  </a>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Vestrix. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

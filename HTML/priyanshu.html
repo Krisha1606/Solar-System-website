@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caforia Coffee & Desserts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #d9b2b5da;
+      color: #0b0303;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin: 3px;
+      font-size: 15px;
+    }
+
+    nav {
+      background-color: #452828;
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: #d7a2a2;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #d7a2a2;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fefcf9be;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #452828;
+      padding: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      width: 160px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #d7a2a2;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5c3b3b;
+      color: #fff;
+    }
+
+    .menu li.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 30%;
+      left: 15%;
+      transform: translate(-30%, -17%);
+      text-align: left;
+      color: white;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+
+    /* New Launches */
+    .new-launches {
+      background-color: #fefcf9;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .launches-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .new-launches h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: #452828;
+    }
+
+    .invisible-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .invisible-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      
+    }
+
+    .invisible-grid h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #452828;
+      margin: 10px 0 5px;
+    }
+
+    .invisible-grid p {
+      font-size: 1rem;
+      color: #5c3b3b;
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #452828;
+      color: #d7a2a2;
+      text-align: center;
+      padding: 10px 15px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: #fcfcfa;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #d2f706;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Message -->
+  <header>
+    <h2>Flat 20% off on your first order</h2>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <a href="index.html">C A F O R I A</a>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Coffee ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="coffee.html">Instant Coffee</a></li>
+              <li><a href="#">Cold Brew</a></li>
+              <li><a href="#">Espresso</a></li>
+              <li><a href="#">Cappuccino</a></li>
+            </ul>
+          </li>
+          <li><a href="orders.html">Bulk Orders</a></li>
+          <li><a href="dessert.html">Dessert</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <img src="picture/p1.jpg" alt="coffee" />
+    <div class="hero-text">
+      <h1>Welcome to Caforia</h1>
+      <p>Caforia is where coffee meets class.<br>
+         Each cup is slow-crafted with warmth and intention.<br>
+         Sip gently, stay awhile, and feel at home.</p>
+    </div>
+  </section>
+
+  <!-- New Launches Section -->
+  <section class="new-launches">
+    <div class="launches-container">
+      <h3>New Launches</h3>
+      <div class="invisible-grid">
+
+        <div>
+          <img src="picture/VanillaHazelnutBrew.jpg" alt="Vanilla Hazelnut Brew">
+          <h4>Vanilla Hazelnut Brew</h4>
+          <br>
+          <p>A smooth, aromatic blend that<br> combines the
+           nutty sweetness <br>of hazelnuts with soft vanilla notes</p>
+          <p>₹349</p>
+          <br>
+        </div>
+
+        <div>
+          <img src="picture/Choco Mocha Blend.jpg" alt="Choco Mocha Blend">
+          <h4>Choco Mocha Blend</h4>
+          <p>₹399</p>
+        </div>
+
+        <div>
+          <img src="picture/carameLatte.webp" alt="Caramel Latte">
+          <h4>Caramel Latte</h4>
+          <p>₹419</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Caforia. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

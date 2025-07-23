@@ -1,0 +1,153 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+html,
+body {
+  color: rgb(215, 194, 194);
+  background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.solar-system {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit {
+  border: 1px solid;
+  box-shadow: 0 0 8px;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: circular 60s linear infinite;
+}
+
+.orb-mercury {
+  width: 120px;
+  height: 120px;
+  animation-duration: 4s;
+  border-color: rgb(190, 167, 167);
+  box-shadow: 0 0 2px rgb(179, 148, 148);
+}
+
+.orb-venus {
+  width: 160px;
+  height: 160px;
+  animation-duration: 7s;
+  border-color: rgb(180, 75, 75);
+  box-shadow: 0 0 2px rgb(125, 70, 70);
+}
+
+.orb-earth {
+  width: 200px;
+  height: 200px;
+  animation-duration: 10s;
+  border-color: rgb(15, 57, 209);
+  box-shadow: 0 0 2px rgb(26, 53, 93);
+}
+
+.orb-mars {
+  width: 250px;
+  height: 250px;
+  animation-duration: 14s;
+  border-color: rgb(181, 14, 14);
+  box-shadow: 0 0 2px rgb(185, 94, 94);
+}
+
+.orb-jupiter {
+  width: 350px;
+  height: 350px;
+  animation-duration: 18s;
+  border-color: rgb(60, 133, 85);
+  box-shadow: 0 0 2px rgb(54, 129, 69);
+}
+
+.orb-saturn {
+  width: 420px;
+  height: 420px;
+  animation-duration: 22s;
+  border-color: orange;
+  box-shadow: 0 0 2px rgb(202, 163, 32);
+}
+
+.orb-uranus {
+  width: 480px;
+  height: 480px;
+  animation-duration: 26s;
+  border-color: rgb(11, 88, 97);
+  box-shadow: 0 0 2px rgb(79, 216, 216);
+}
+
+.orb-neptune {
+  width: 550px;
+  height: 550px;
+  animation-duration: 30s;
+  border-color: rgb(23, 124, 225);
+  box-shadow: 0 0 5px rgb(7, 40, 58);
+}
+
+
+.orbit div {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes circular {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.mercury {
+  animation: circular 3s linear infinite;
+}
+
+.venus {
+  animation: circular 6s linear infinite;
+}
+
+.earth {
+  animation: circular 8s linear infinite;
+}
+
+.mars {
+  animation: circular 10s linear infinite;
+}
+
+.jupiter {
+  animation: circular 14s linear infinite;
+}
+
+.saturn {
+  animation: circular 17s linear infinite;
+}
+
+.uranus {
+  animation: circular 20s linear infinite;
+}
+
+.neptune {
+  animation: circular 25s linear infinite;
+}

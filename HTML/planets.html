@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Planets</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px 0;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: #f5f5f9;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 4px 4px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #2f71a4;
+            color: #b1bbbe;
+            transform: scale(1.05);
+            border-radius: 5px;
+        }
+
+        .planet-container {
+            display: flex;
+            height: 100vh;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .planet {
+            position: relative;
+            height: 100vh;
+        }
+
+        .textbox {
+            position: absolute;
+            top: 70%;
+            left: 150px;
+            transform: translateY(-50%);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.466);
+        }
+
+        .textbox h2 {
+            color: bisque;
+            text-align: center;
+            font-style: orbitron;
+        }
+
+        .textbox p {
+            font-size: 18px;
+            color: rgb(182, 220, 207);
+            font-style: share tech mono;
+        }
+
+        .readmore {
+            text-align: center;
+        }
+
+        .readmore a {
+            color: rgb(130, 107, 79);
+            transition: 0.3s ease;
+        }
+
+        .readmore a:hover {
+            color: rgb(171, 136, 136);
+            border-color: rgb(222, 201, 201);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#planet1">Mercury</a>
+        <a href="#planet2">Venus</a>
+        <a href="#planet3">Earth</a>
+        <a href="#planet4">Mars</a>
+        <a href="#planet5">Jupiter</a>
+        <a href="#planet6">Saturn</a>
+        <a href="#planet7">Uranus</a>
+        <a href="#planet8">Neptune</a>
+
+    </div>
+    <div class="planet-container">
+
+        <section class="planet" id="planet1">
+            <img src="D:\space photos\m2.jpg" alt="Mercury" height="800px" width="1300px">
+            <div class="textbox">
+                <h2>Mercury</h2>
+                <p>Mercury is the smallest planet in our solar system, closest to the Sun, and named after the Roman
+                    messenger god known for his speed</p>
+                <div class="readmore">
+                    <a href="mercury.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet" id="planet2">
+            <img src="C:\Users\KRISHA\Downloads\steptodown.com757949.jpg" alt="venus" height="700px" width="1300px">
+            <div class="textbox">
+                <h2>venus</h2>
+                <p>Venus is shrouded in thick clouds of sulfuric acid. It’s the hottest planet, with a surface hot
+                    enough to melt lead a true greenhouse inferno.</p>
+                <div class="readmore">
+                    <a href="venus.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet" id="planet3">
+            <img src="C:\Users\KRISHA\Downloads\steptodown.com899141.jpg" alt="Earth" height="700px" width="1300px">
+            <div class="textbox">
+                <h2>Earth</h2>
+                <p>Earth is the only known planet to support life, with vast oceans, green landscapes, and an atmosphere
+                    rich in oxygen and nitrogen.</p>
+                <div class="readmore">
+                    <a href="earth.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="planet" id="planet4">
+            <img src="D:\space photos\hmars.jpg" alt="Mars" height="800px" width="1300px">
+            <div class="textbox">
+                <h2>Mars</h2>
+                <p>Mars,is a cold desert world with the tallest volcano and deepest canyon in the solar
+                    system.It’s a top candidate for future human exploration.</p>
+                <div class="readmore">
+                    <a href="mars.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet" id="planet5">
+            <img src="C:\Users\KRISHA\Downloads\steptodown.com104914 (1) (1).jpg" alt="Jupiter" height="800px" width="1300px">
+            <div class="textbox">
+                <h2>Jupiter</h2>
+                <p>Jupiter is the largest planet, a gas giant with a massive red storm and dozens of moons. Its strong
+                    magnetic field is the most powerful of any planet.</p>
+                <div class="readmore">
+                    <a href="jupiter.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet" id="planet6">
+            <img src="C:\Users\KRISHA\Downloads\steptodown.com473914.jpg" alt="Saturn" height="800px" width="1300px">
+            <div class="textbox">
+                <h2>Saturn</h2>
+                <p>Saturn is famous for its stunning ring system made of ice and rock. It's a gas giant with a low
+                    density — it would float if placed in water!</p>
+                <div class="readmore">
+                    <a href="saturn.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet" id="planet7">
+            <img src="C:\Users\KRISHA\Downloads\steptodown.com598346.jpg" alt="Uranus" height="700px" width="1300px">
+            <div class="textbox">
+                <h2>Uranus</h2>
+                <p>Uranus is tilted on its side and spins like a rolling ball. It’s an icy giant with a pale blue color
+                    due to methane in its atmosphere.</p>
+                <div class="readmore">
+                    <a href="uranus.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+        <section class="planet" id="planet8">
+            <img src="C:\Users\KRISHA\Downloads\steptodown.com404192 (1).jpg" alt="Neptune" height="600px" width="1300px">
+            <div class="textbox">
+                <h2>Neptune</h2>
+                <p>Neptune is the farthest known planet, dark and cold with supersonic winds. It’s deep blue in color
+                    and home to the fastest winds in the solar system.</p>
+                <div class="readmore">
+                    <a href="neptune.html">READ MORE</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+    <hr>
+     <footer>
+        <p style="text-align:center">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
+    </footer>
+</body>
+
+</html>
