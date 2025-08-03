@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>FAQ - Solar System Explorer</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .faq-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #f5f5f9;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .faq-header p {
+            font-size: 1.2em;
+            color: #b1bbbe;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #2f71a4;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(47, 113, 164, 0.3);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, #2f71a4, #1e4d72);
+            color: #f5f5f9;
+            padding: 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #3a7fb8, #2558a0);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            background: rgba(21, 32, 43, 0.8);
+            color: #e0e0e0;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            margin-bottom: 10px;
+        }
+
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 5px;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 60%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #2f71a4;
+            border-radius: 25px;
+            background: rgba(21, 32, 43, 0.8);
+            color: #f5f5f9;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: #b1bbbe;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1e4d72, #2f71a4);
+            border-radius: 10px;
+            color: #f5f5f9;
+        }
+
+        .contact-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .search-input {
+                width: 90%;
+            }
+            
+            .faq-header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: #000;">
+
+    <header style="background: #000;">
+        <h1 style="text-align:center;">Solar System Explorer</h1>
+        <p style="text-align:center; font-size:18px;">Explore the wonders of our solar neighborhood</p>
+    </header>
+
+    <div class="nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="orbit.html">Orbit Explorer</a></li>
+            <li><a href="aboutsolarsystem.html">About the Solar System</a></li>
+            <li><a href="faq.html" style="background-color: #2f71a4; border-radius: 5px;">FAQ</a></li>
+        </ul>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our solar system and this website</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search FAQ..." id="searchInput">
+        </div>
+
+        <div class="faq-list" id="faqList">
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is the Solar System Explorer website about?
+                </div>
+                <div class="faq-answer">
+                    <p>Solar System Explorer is an educational website designed to help you learn about our solar system. You can explore detailed information about all planets, understand orbital mechanics, discover fun facts, and test your knowledge with interactive quizzes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How many planets are in our solar system?
+                </div>
+                <div class="faq-answer">
+                    <p>There are 8 planets in our solar system:</p>
+                    <ul>
+                        <li><strong>Inner planets:</strong> Mercury, Venus, Earth, Mars</li>
+                        <li><strong>Outer planets:</strong> Jupiter, Saturn, Uranus, Neptune</li>
+                    </ul>
+                    <p>Pluto was reclassified as a "dwarf planet" in 2006 by the International Astronomical Union.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What's the difference between inner and outer planets?
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Inner planets (Terrestrial planets):</strong></p>
+                    <ul>
+                        <li>Rocky composition</li>
+                        <li>Smaller size</li>
+                        <li>Closer to the Sun</li>
+                        <li>Few or no moons</li>
+                    </ul>
+                    <p><strong>Outer planets (Gas giants):</strong></p>
+                    <ul>
+                        <li>Made mostly of gas and ice</li>
+                        <li>Much larger size</li>
+                        <li>Farther from the Sun</li>
+                        <li>Many moons and ring systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How old is our solar system?
+                </div>
+                <div class="faq-answer">
+                    <p>Our solar system is approximately 4.6 billion years old. It formed from a giant cloud of gas and dust called a nebula. The Sun formed first, followed by the planets through a process called accretion.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Which planet is the hottest in our solar system?
+                </div>
+                <div class="faq-answer">
+                    <p>Venus is the hottest planet in our solar system, with surface temperatures reaching about 462°C (864°F). Even though Mercury is closer to the Sun, Venus's thick atmosphere creates a runaway greenhouse effect that makes it hotter.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is the Great Red Spot on Jupiter?
+                </div>
+                <div class="faq-answer">
+                    <p>The Great Red Spot is a giant storm on Jupiter that has been raging for at least 300-400 years. It's a high-pressure region that's larger than Earth and rotates counterclockwise. The red color comes from complex chemical reactions in Jupiter's atmosphere.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why does Saturn have rings?
+                </div>
+                <div class="faq-answer">
+                    <p>Saturn's rings are made of countless particles of ice and rock, ranging from tiny grains to house-sized chunks. They likely formed from destroyed moons or comets that came too close to Saturn and were torn apart by the planet's gravity. All gas giants have ring systems, but Saturn's are the most prominent.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long does it take to travel to Mars?
+                </div>
+                <div class="faq-answer">
+                    <p>With current technology, it takes about 6-9 months to travel from Earth to Mars. The exact time depends on:</p>
+                    <ul>
+                        <li>The positions of Earth and Mars in their orbits</li>
+                        <li>The spacecraft's speed and trajectory</li>
+                        <li>The type of mission (direct route vs. gravity assists)</li>
+                    </ul>
+                    <p>The best launch windows occur every 26 months when the planets are properly aligned.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I use the images and information from this website?
+                </div>
+                <div class="faq-answer">
+                    <p>The scientific information on this website is educational and can be referenced for learning purposes. However, please note that images are sourced from NASA and other space agencies. For any commercial use or redistribution, please check the original source's licensing terms.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How accurate is the information on this website?
+                </div>
+                <div class="faq-answer">
+                    <p>We strive to provide accurate, up-to-date information based on current scientific understanding. Our content is sourced from reputable space agencies like NASA, ESA, and peer-reviewed scientific publications. However, space science is constantly evolving, so we regularly update our content as new discoveries are made.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is there life elsewhere in our solar system?
+                </div>
+                <div class="faq-answer">
+                    <p>While we haven't found definitive proof of life elsewhere in our solar system, several locations show promise:</p>
+                    <ul>
+                        <li><strong>Mars:</strong> Evidence of ancient water and possible microbial life</li>
+                        <li><strong>Europa (Jupiter's moon):</strong> Subsurface ocean beneath ice</li>
+                        <li><strong>Enceladus (Saturn's moon):</strong> Geysers indicating liquid water</li>
+                        <li><strong>Titan (Saturn's moon):</strong> Complex organic chemistry</li>
+                    </ul>
+                    <p>Future missions will continue to search for signs of past or present life.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How can I contribute to space exploration?
+                </div>
+                <div class="faq-answer">
+                    <p>There are many ways to get involved in space exploration:</p>
+                    <ul>
+                        <li>Study STEM subjects (Science, Technology, Engineering, Mathematics)</li>
+                        <li>Participate in citizen science projects</li>
+                        <li>Join astronomy clubs and organizations</li>
+                        <li>Support space agencies and missions</li>
+                        <li>Share your passion for space with others</li>
+                        <li>Consider careers in aerospace, astronomy, or related fields</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h3>Still Have Questions?</h3>
+            <p>Can't find what you're looking for? We're here to help!</p>
+            <p>Contact us at: <strong>info@solarsystemexplorer.com</strong></p>
+            <p>Follow us for the latest space discoveries and updates!</p>
+        </div>
+    </div>
+
+    <footer style="text-align:center; padding: 20px; color: #b1bbbe;">
+        <p>© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current FAQ
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm) || searchTerm === '') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
