@@ -161,6 +161,247 @@
                 font-size: 2em;
             }
         }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 2px solid #2f71a4;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.7);
+            animation: popupSlideIn 0.3s ease forwards;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #f5f5f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .popup-close:hover {
+            color: #ff4757;
+            transform: rotate(90deg);
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .popup-header h3 {
+            color: #4CAF50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .popup-body {
+            color: #e0e0e0;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .popup-body p {
+            margin-bottom: 15px;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .popup-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .popup-btn-primary {
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            color: white;
+        }
+
+        .popup-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .popup-btn-secondary {
+            background: transparent;
+            color: #f5f5f9;
+            border: 2px solid #2f71a4;
+        }
+
+        .popup-btn-secondary:hover {
+            background: #2f71a4;
+            transform: translateY(-2px);
+        }
+
+        /* Welcome Popup Specific Styles */
+        .welcome-popup .popup-content {
+            max-width: 600px;
+        }
+
+        .welcome-popup .popup-header h3 {
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Notification Popup */
+        .notification-popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 350px;
+            z-index: 1001;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-popup.show {
+            transform: translateX(0);
+        }
+
+        .notification-popup .notification-content {
+            color: #f5f5f9;
+        }
+
+        .notification-popup .notification-title {
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .notification-popup .notification-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #f5f5f9;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Help Tooltip */
+        .help-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #2f71a4;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .help-tooltip {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a2e;
+            color: #f5f5f9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #2f71a4;
+            z-index: 100;
+        }
+
+        .help-icon:hover .help-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popupSlideIn {
+            from {
+                transform: scale(0.7) translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.6);
+        }
     </style>
 </head>
 
@@ -184,7 +425,11 @@
     <div class="faq-container">
         <div class="faq-header">
             <h1>Frequently Asked Questions</h1>
-            <p>Find answers to common questions about our solar system and this website</p>
+            <p>Find answers to common questions about our solar system and this website
+                <span class="help-icon">?
+                    <div class="help-tooltip">Click on questions to expand answers. Use search to find specific topics!</div>
+                </span>
+            </p>
         </div>
 
         <div class="search-box">
@@ -348,6 +593,98 @@
         </div>
     </div>
 
+    <!-- Floating Action Button -->
+    <button class="fab" id="helpFab" title="Need Help?">💬</button>
+
+    <!-- Welcome Popup -->
+    <div class="popup-overlay welcome-popup" id="welcomePopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup('welcomePopup')">&times;</button>
+            <div class="popup-header">
+                <h3>🚀 Welcome to Solar System Explorer FAQ!</h3>
+            </div>
+            <div class="popup-body">
+                <p>Discover answers to fascinating questions about our solar system and learn how to navigate this website effectively.</p>
+                <p><strong>Tips for using this page:</strong></p>
+                <ul style="text-align: left; display: inline-block;">
+                    <li>Click on any question to reveal the answer</li>
+                    <li>Use the search box to find specific topics</li>
+                    <li>Hover over the "?" icon for quick help</li>
+                    <li>Click the chat button for additional assistance</li>
+                </ul>
+            </div>
+            <div class="popup-buttons">
+                <button class="popup-btn popup-btn-primary" onclick="closePopup('welcomePopup')">Start Exploring!</button>
+                <button class="popup-btn popup-btn-secondary" onclick="showTour()">Take a Tour</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Popup -->
+    <div class="popup-overlay" id="helpPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup('helpPopup')">&times;</button>
+            <div class="popup-header">
+                <h3>🛟 Need Help?</h3>
+            </div>
+            <div class="popup-body">
+                <p>We're here to help you explore the wonders of our solar system!</p>
+                <p><strong>Quick Actions:</strong></p>
+                <div style="text-align: left; margin: 20px 0;">
+                    <p>• <strong>Search:</strong> Type keywords in the search box above</p>
+                    <p>• <strong>Browse:</strong> Click on any question to expand</p>
+                    <p>• <strong>Contact:</strong> Reach out via the contact section below</p>
+                    <p>• <strong>Explore:</strong> Visit other pages through navigation</p>
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <button class="popup-btn popup-btn-primary" onclick="closePopup('helpPopup')">Got it!</button>
+                <button class="popup-btn popup-btn-secondary" onclick="showContactInfo()">Contact Us</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info Popup -->
+    <div class="popup-overlay" id="contactPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup('contactPopup')">&times;</button>
+            <div class="popup-header">
+                <h3>📧 Get in Touch</h3>
+            </div>
+            <div class="popup-body">
+                <p>Have questions that aren't covered in our FAQ?</p>
+                <div style="text-align: left; margin: 20px 0;">
+                    <p><strong>📧 Email:</strong> info@solarsystemexplorer.com</p>
+                    <p><strong>🌐 Website:</strong> Solar System Explorer</p>
+                    <p><strong>📱 Social:</strong> Follow us for space updates</p>
+                    <p><strong>⏰ Response Time:</strong> Within 24 hours</p>
+                </div>
+                <p>We love hearing from space enthusiasts and students!</p>
+            </div>
+            <div class="popup-buttons">
+                <button class="popup-btn popup-btn-primary" onclick="closePopup('contactPopup')">Thanks!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification-popup" id="successNotification">
+        <button class="notification-close" onclick="closeNotification()">&times;</button>
+        <div class="notification-title">🎉 Success!</div>
+        <div class="notification-content">
+            Welcome to our FAQ page! Feel free to explore and learn about our solar system.
+        </div>
+    </div>
+
+    <!-- Search Result Notification -->
+    <div class="notification-popup" id="searchNotification">
+        <button class="notification-close" onclick="closeNotification('searchNotification')">&times;</button>
+        <div class="notification-title">🔍 Search Results</div>
+        <div class="notification-content" id="searchNotificationContent">
+            Found matching results for your search!
+        </div>
+    </div>
+
     <footer style="text-align:center; padding: 20px; color: #b1bbbe;">
         <p>© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
     </footer>
@@ -373,10 +710,11 @@
             });
         });
 
-        // Search functionality
+        // Search functionality with notifications
         document.getElementById('searchInput').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const faqItems = document.querySelectorAll('.faq-item');
+            let visibleCount = 0;
             
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question').textContent.toLowerCase();
@@ -384,8 +722,113 @@
                 
                 if (question.includes(searchTerm) || answer.includes(searchTerm) || searchTerm === '') {
                     item.style.display = 'block';
+                    visibleCount++;
                 } else {
                     item.style.display = 'none';
+                }
+            });
+
+            // Show search notification if search term exists
+            if (searchTerm && visibleCount > 0) {
+                showSearchNotification(visibleCount);
+            }
+        });
+
+        // Popup Functions
+        function showPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+        }
+
+        function showContactInfo() {
+            closePopup('helpPopup');
+            setTimeout(() => showPopup('contactPopup'), 300);
+        }
+
+        function showTour() {
+            closePopup('welcomePopup');
+            showNotification('🎯 Tour started! Explore the features and click on questions to see answers.', 'tour');
+        }
+
+        // Notification Functions
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('successNotification');
+            const content = notification.querySelector('.notification-content');
+            const title = notification.querySelector('.notification-title');
+            
+            if (type === 'tour') {
+                title.textContent = '🎯 Quick Tour';
+            } else {
+                title.textContent = '🎉 Success!';
+            }
+            
+            content.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        function showSearchNotification(count) {
+            const notification = document.getElementById('searchNotification');
+            const content = document.getElementById('searchNotificationContent');
+            content.textContent = `Found ${count} matching result${count !== 1 ? 's' : ''} for your search!`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        function closeNotification(notificationId = 'successNotification') {
+            document.getElementById(notificationId).classList.remove('show');
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show welcome popup after a short delay
+            setTimeout(() => {
+                showPopup('welcomePopup');
+            }, 1000);
+
+            // Show welcome notification
+            setTimeout(() => {
+                showNotification('Welcome to our FAQ page! Feel free to explore and learn about our solar system.');
+            }, 2000);
+
+            // Floating Action Button
+            document.getElementById('helpFab').addEventListener('click', () => {
+                showPopup('helpPopup');
+            });
+
+            // Close popups when clicking outside
+            document.querySelectorAll('.popup-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        overlay.classList.remove('active');
+                    }
+                });
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    // Close all popups
+                    document.querySelectorAll('.popup-overlay').forEach(popup => {
+                        popup.classList.remove('active');
+                    });
+                    // Close all notifications
+                    document.querySelectorAll('.notification-popup').forEach(notification => {
+                        notification.classList.remove('show');
+                    });
+                }
+                if (e.ctrlKey && e.key === '/') {
+                    e.preventDefault();
+                    document.getElementById('searchInput').focus();
                 }
             });
         });
@@ -394,9 +837,34 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive features
+        let searchCount = 0;
+        document.getElementById('searchInput').addEventListener('focus', function() {
+            searchCount++;
+            if (searchCount === 1) {
+                showNotification('💡 Tip: Use Ctrl+/ to quickly focus the search box!', 'tour');
+            }
+        });
+
+        // Track FAQ interactions
+        let faqOpenCount = 0;
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                faqOpenCount++;
+                if (faqOpenCount === 3) {
+                    setTimeout(() => {
+                        showNotification('🌟 Great exploring! You\'re becoming a space expert!', 'tour');
+                    }, 500);
+                }
             });
         });
     </script>
