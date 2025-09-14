@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Sign Up - Solar System Explorer</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .signup-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body style="background: #000;">
+
+    <header style="background: #000;">
+        <h1 style="text-align:center;">Solar System Explorer</h1>
+        <p style="text-align:center; font-size:18px;">Join Our Space Community</p>
+    </header>
+
+    <div class="nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Planets.html">Planets</a></li>
+            <li><a href="orbit.html">Orbit Explorer</a></li>
+            <li><a href="aboutsolarsystem.html">About the Solar System</a></li>
+        </ul>
+    </div>
+
+    <div class="signup-container">
+        <h2 style="color: #fff; text-align: center; margin-bottom: 30px;">Sign Up for Solar System Explorer</h2>
+        
+        <form class="signup-form" action="register.php" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="fullname">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                <span class="error-message" id="fullname-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                <span class="error-message" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="5" max="120" placeholder="Enter your age">
+                <span class="error-message" id="age-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="interest">Primary Interest in Space</label>
+                <select id="interest" name="interest">
+                    <option value="">Select your primary interest</option>
+                    <option value="planets">Planets</option>
+                    <option value="stars">Stars</option>
+                    <option value="galaxies">Galaxies</option>
+                    <option value="space-exploration">Space Exploration</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="astrophysics">Astrophysics</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Experience Level</label>
+                <select id="experience" name="experience">
+                    <option value="">Select your experience level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Tell us what you hope to learn or any questions you have..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="newsletter" name="newsletter" value="yes" style="width: auto; margin-right: 10px;">
+                    Subscribe to our space newsletter for updates and fun facts
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Join the Space Community</button>
+        </form>
+
+        <a href="home.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 20px;">
+        <p style="color: #fff;">© 2025 Solar System Explorer | Created by Krisha</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            
+            // Clear previous error messages
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            
+            // Validate full name
+            const fullname = document.getElementById('fullname').value.trim();
+            if (fullname.length < 2) {
+                document.getElementById('fullname-error').textContent = 'Full name must be at least 2 characters long';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('email-error').textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+            
+            // Validate age if provided
+            const age = document.getElementById('age').value;
+            if (age && (age < 5 || age > 120)) {
+                document.getElementById('age-error').textContent = 'Age must be between 5 and 120';
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Real-time validation feedback
+        document.getElementById('fullname').addEventListener('blur', function() {
+            const fullname = this.value.trim();
+            const errorEl = document.getElementById('fullname-error');
+            if (fullname.length > 0 && fullname.length < 2) {
+                errorEl.textContent = 'Full name must be at least 2 characters long';
+            } else {
+                errorEl.textContent = '';
+            }
+        });
+
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const errorEl = document.getElementById('email-error');
+            if (email.length > 0 && !emailRegex.test(email)) {
+                errorEl.textContent = 'Please enter a valid email address';
+            } else {
+                errorEl.textContent = '';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
