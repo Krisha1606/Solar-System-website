@@ -1,153 +1,144 @@
-* {
-  padding: 0%;
-  margin: 0%;
+/* ============================================================
+   ORBIT EXPLORER — Immersive 3D Command Center
+   ============================================================ */
+
+body.orbit-page {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #02040a;
 }
 
-html,
-body {
-  color: rgb(215, 194, 194);
-  background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg");
-  background-attachment: fixed;
-  background-size: cover;
+#orbit-3d-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
 }
 
-.solar-system {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+/* Glassmorphic Command Panel */
+.command-center {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    width: 320px;
+    z-index: 100;
+    pointer-events: none;
 }
 
-
-.sun {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.command-panel {
+    pointer-events: auto;
+    background: rgba(10, 15, 30, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(100, 160, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 
+                inset 0 0 20px rgba(100, 160, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    animation: panelSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.orbit {
-  border: 1px solid;
-  box-shadow: 0 0 8px;
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: circular 60s linear infinite;
+@keyframes panelSlideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-.orb-mercury {
-  width: 120px;
-  height: 120px;
-  animation-duration: 4s;
-  border-color: rgb(190, 167, 167);
-  box-shadow: 0 0 2px rgb(179, 148, 148);
+.control-group {
+    margin-bottom: 25px;
 }
 
-.orb-venus {
-  width: 160px;
-  height: 160px;
-  animation-duration: 7s;
-  border-color: rgb(180, 75, 75);
-  box-shadow: 0 0 2px rgb(125, 70, 70);
+.control-group label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66b3ff;
+    margin-bottom: 12px;
+    opacity: 0.8;
 }
 
-.orb-earth {
-  width: 200px;
-  height: 200px;
-  animation-duration: 10s;
-  border-color: rgb(15, 57, 209);
-  box-shadow: 0 0 2px rgb(26, 53, 93);
+/* Styled Inputs */
+.styled-slider {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    accent-color: #66b3ff;
+    cursor: pointer;
+    outline: none;
 }
 
-.orb-mars {
-  width: 250px;
-  height: 250px;
-  animation-duration: 14s;
-  border-color: rgb(181, 14, 14);
-  box-shadow: 0 0 2px rgb(185, 94, 94);
+.value-display {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-top: 5px;
 }
 
-.orb-jupiter {
-  width: 350px;
-  height: 350px;
-  animation-duration: 18s;
-  border-color: rgb(60, 133, 85);
-  box-shadow: 0 0 2px rgb(54, 129, 69);
+.value-display span {
+    color: #66b3ff;
+    font-weight: 600;
 }
 
-.orb-saturn {
-  width: 420px;
-  height: 420px;
-  animation-duration: 22s;
-  border-color: orange;
-  box-shadow: 0 0 2px rgb(202, 163, 32);
+.styled-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
 }
 
-.orb-uranus {
-  width: 480px;
-  height: 480px;
-  animation-duration: 26s;
-  border-color: rgb(11, 88, 97);
-  box-shadow: 0 0 2px rgb(79, 216, 216);
+.styled-select option {
+    background: #0f172a;
 }
 
-.orb-neptune {
-  width: 550px;
-  height: 550px;
-  animation-duration: 30s;
-  border-color: rgb(23, 124, 225);
-  box-shadow: 0 0 5px rgb(7, 40, 58);
+/* Live Stats */
+.live-stats {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-
-.orbit div {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translate(-50%, -50%);
+.stat-line {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
 }
 
-@keyframes circular {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+.stat-line span {
+    color: #e2e8f0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
-.mercury {
-  animation: circular 3s linear infinite;
+.bottom-info {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    z-index: 100;
+    letter-spacing: 1px;
 }
 
-.venus {
-  animation: circular 6s linear infinite;
-}
-
-.earth {
-  animation: circular 8s linear infinite;
-}
-
-.mars {
-  animation: circular 10s linear infinite;
-}
-
-.jupiter {
-  animation: circular 14s linear infinite;
-}
-
-.saturn {
-  animation: circular 17s linear infinite;
-}
-
-.uranus {
-  animation: circular 20s linear infinite;
-}
-
-.neptune {
-  animation: circular 25s linear infinite;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .command-center {
+        top: auto;
+        bottom: 30px;
+        right: 20px;
+        left: 20px;
+        width: auto;
+    }
+    .command-panel {
+        padding: 20px;
+    }
 }

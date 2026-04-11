@@ -1,120 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>orbit System</title>
-    <link rel="stylesheet" href="orbit.css" />
-  </head>
-  <body>
-    <header>
-      <h1 style="text-align: center">🛰️ Orbit Explorer</h1>
-      <p style="text-align: center">
-        Watch the planets orbit around the Sun in real time!
-      </p>
-      <div style="text-align: center; margin: 20px 0;">
-        <a href="home.html" style="color: #4CAF50; text-decoration: none; margin: 0 15px; font-weight: bold;">🏠 Home</a>
-        <a href="Planets.html" style="color: #4CAF50; text-decoration: none; margin: 0 15px; font-weight: bold;">🪐 Planets</a>
-        <a href="signup.html" style="color: #4CAF50; text-decoration: none; margin: 0 15px; font-weight: bold;">🚀 Sign Up</a>
-      </div>
-    </header>
-    <hr>
-    
-    <div class="solar-system">
-      <div class="sun">
-        <img
-          src="D:\space photos\sun rbg.png"
-          alt="sun"
-          height="50"
-          width="50"
-        />
-      </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Explorer - Solar System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css"> <!-- Reuse home design tokens -->
+    <link rel="stylesheet" href="orbit.css">
+</head>
+<body class="orbit-page">
 
-      <div class="orbit orb-mercury">
-        <div class="mercury">
-          <img
-            src="D:\space photos\mercury.png"
-            alt="mercury"
-            height="25"
-            width="37"
-          />
+    <!-- 3D Canvas Container -->
+    <div id="orbit-3d-container"></div>
+
+    <!-- Mission Branding (Top Left) -->
+    <div class="brand-logo-container">
+        <div class="brand-icon">
+            <i class="fa-solid fa-satellite"></i>
         </div>
-      </div>
-      <div class="orbit orb-venus">
-        <div class="venus">
-          <img
-            src="D:\space photos\venus.png"
-            alt="venus"
-            height="29"
-            width="47"
-          />
+        <div class="brand-text">
+            <div class="brand-title">COSMOS</div>
+            <div class="brand-subtitle">EXPLORER</div>
         </div>
-      </div>
-      <div class="orbit orb-earth">
-        <div class="earth">
-          <img
-            src="D:\space photos\Earth.png"
-            alt="earth"
-            height="22"
-            width="22"
-          />
-        </div>
-      </div>
-      <div class="orbit orb-mars">
-        <div class="mars">
-          <img
-            src="D:\space photos\mars.png"
-            alt="mars"
-            height="20"
-            width="20"
-          />
-        </div>
-      </div>
-      <div class="orbit orb-jupiter">
-        <div class="jupiter">
-          <img
-            src="D:\space photos\jupiter.png"
-            alt="jupiter"
-            height="40"
-            width="40"
-          />
-        </div>
-      </div>
-      <div class="orbit orb-saturn">
-        <div class="saturn">
-          <img
-            src="D:\space photos\saturn.png"
-            alt="saturn"
-            height="40"
-            width="45"
-          />
-        </div>
-      </div>
-      <div class="orbit orb-uranus">
-        <div class="uranus">
-          <img
-            src="D:\space photos\uranus.png"
-            alt="uranus"
-            height="40"
-            width="45"
-          />
-        </div>
-      </div>
-      <div class="orbit orb-neptune">
-        <div class="neptune">
-          <img
-            src="D:\space photos\neptune.png"
-            alt="neptune"
-            height="40"
-            width="50"
-          />
-        </div>
-      </div>
     </div>
-    <hr />
 
-    <footer>
-      <p style="text-align: center">
-        © 2025 Solar System Explorer | Images from NASA | Created by Krisha
-      </p>
-    </footer>
-  </body>
+    <!-- UI Overlays -->
+    <nav class="saas-nav">
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="Planets.html">Planets</a>
+            <a href="orbit.html" class="active">Orbit Explorer</a>
+            <a href="quiz.html">Quiz</a>
+        </div>
+    </nav>
+
+    <div class="command-center">
+        <div class="glass-panel command-panel">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 20px;">System Command</h2>
+            
+            <div class="control-group">
+                <label>Time Progression</label>
+                <input type="range" id="speed-slider" min="0" max="100000" value="100" class="styled-slider">
+                <div class="value-display"><span id="speed-val">100x</span> real-time</div>
+            </div>
+
+            <div class="control-group">
+                <label>Target Body</label>
+                <select id="target-select" class="styled-select">
+                    <option value="Sun">Sun (Center)</option>
+                    <option value="Mercury">Mercury</option>
+                    <option value="Venus">Venus</option>
+                    <option value="Earth">Earth</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Jupiter">Jupiter</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Uranus">Uranus</option>
+                    <option value="Neptune">Neptune</option>
+                </select>
+            </div>
+
+            <div class="live-stats" id="live-stats" style="margin-bottom: 20px;">
+                <div class="stat-line">Distance: <span id="stat-dist">--</span> M km</div>
+            </div>
+
+            <!-- Navigation Hints -->
+            <div style="font-size: 0.65rem; color: rgba(100, 160, 255, 0.4); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                <div style="margin-bottom: 5px;"><i class="fa-solid fa-mouse-pointer" style="margin-right: 5px;"></i> Drag to Rotate</div>
+                <div><i class="fa-solid fa-arrows-up-down" style="margin-right: 5px;"></i> Scroll to Zoom</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Mockup -->
+    <div class="bottom-info">
+        <p>© 2026 Solar System Explorer | Real-time NASA Data</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/data-fetcher.js"></script>
+    <script src="js/space-engine.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const engine = new SpaceEngine('orbit-3d-container', {
+                showOrbits: true,
+                timeScale: 100,
+                autoRotate: false // Disable auto-rotate for manual navigation
+            });
+            engine.syncWithJPL();
+
+            // UI Interaction
+            const speedSlider = document.getElementById('speed-slider');
+            const speedVal = document.getElementById('speed-val');
+            speedSlider.addEventListener('input', (e) => {
+                engine.options.timeScale = e.target.value;
+                speedVal.textContent = e.target.value + 'x';
+            });
+
+            const targetSelect = document.getElementById('target-select');
+            targetSelect.addEventListener('change', (e) => {
+                engine.focusBody(e.target.value);
+            });
+            
+            // Continuous stat update
+            setInterval(() => {
+                const targetName = targetSelect.value;
+                if (targetName !== 'Sun') {
+                    const planet = engine.planets[targetName];
+                    if (planet) {
+                        const distKm = Math.sqrt(planet.position.x**2 + planet.position.z**2) * 1e6;
+                        document.getElementById('stat-dist').textContent = (distKm / 1e6).toFixed(2);
+                    }
+                } else {
+                    document.getElementById('stat-dist').textContent = "0.00";
+                }
+            }, 100);
+        });
+    </script>
+</body>
 </html>
+

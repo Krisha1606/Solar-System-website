@@ -1,215 +1,587 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Planets</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System - Planetary Explorer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        /* === Core Setup === */
         * {
-            padding: 0%;
-            margin: 0%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #000;
+            background-color: #020308;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* Prevent scrolling */
+            height: 100vh;
+            width: 100vw;
         }
 
-        .navbar {
+        /* 3D Parallax Stars Layers */
+        .stars-bg, .stars-bg-deep {
             position: fixed;
-            width: 100%;
-            background-color: #000;
-            color: white;
+            top: -5%; left: -5%; width: 110vw; height: 110vh;
+            pointer-events: none;
+            z-index: -4;
+        }
+
+        .stars-bg {
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 50px 160px, #ffffff80, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 130px 80px, #ffffffb0, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 160px 120px, #ffffff80, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: starsAnim 100s linear infinite;
+            transform: translate(calc(var(--px, 0px) * 1), calc(var(--py, 0px) * 1));
+            transition: transform 0.1s linear;
+        }
+
+        .stars-bg-deep {
+            background-image: 
+                radial-gradient(2px 2px at 50px 160px, #e3eeff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 300px 300px;
+            animation: starsAnim 60s linear infinite;
+            opacity: 0.8;
+            z-index: -3;
+            transform: translate(calc(var(--px, 0px) * 0.4), calc(var(--py, 0px) * 0.4));
+            transition: transform 0.1s linear;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 200vw; height: 200vh;
+            background: radial-gradient(circle at center, rgba(30, 45, 80, 0.4) 0%, rgba(10, 15, 30, 0.2) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        @keyframes starsAnim {
+            from { background-position: 0 0; }
+            to { background-position: -1200px 600px; } /* Seamless loop multiplier (LCM of 200, 300 = 600) */
+        }
+
+        /* === Navigation Bar (Matched to Homepage) === */
+        .saas-nav {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            padding: 15px 0;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px 30px;
+            border-radius: 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links a {
+            color: #e0e5ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #66b3ff;
+            transform: translateY(-1px);
+            text-shadow: 0 0 12px rgba(102, 179, 255, 0.6);
+        }
+
+        /* === Cinematic Carousel Layout === */
+        #carousel-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 10;
+            perspective: 2000px;
+        }
+
+        /* Nav Arrows - Snug against the main planet */
+        .nav-btn {
+            position: absolute;
+            top: 52%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border: none;
+        }
+
+        .nav-btn:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.2);
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        .nav-btn.prev { left: 25%; }
+        .nav-btn.next { right: 25%; }
+
+        /* The Planet Node */
+        .planet-node {
+            position: absolute;
+            top: 55%; 
+            width: 28vw; /* Reduced planet size based on feedback */
+            max-width: 500px;
+            aspect-ratio: 1; /* Enforce a perfect square to crop it properly */
+            border-radius: 50%; /* Force perfect circle */
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.15); /* Soft outer glow cleanly on the container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            will-change: transform, opacity, filter, left, top;
+            transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Hide the black edges for spherical planets using a strong overflow crop */
+        .planet-node:not(.is-saturn) {
+            overflow: hidden; 
+        }
+
+        /* 3D Volumetric Sphere Lighting Overlay */
+        .planet-node:not(.is-saturn)::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 50%;
+            /* Intense inner shading to make it pop like a 3D globe rather than a 2D sticker */
+            box-shadow: inset -25px -25px 45px rgba(0, 0, 0, 0.9), 
+                        inset 15px 15px 35px rgba(255, 255, 255, 0.3);
+            pointer-events: none;
             z-index: 10;
         }
 
-        .navbar a {
-            color: #f5f5f9;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 4px 4px;
-            display: inline-block;
-            transition: 0.3s;
+        /* Planet Image zooming to push black ring outside the spherical crop */
+        .planet-node img {
+            width: 155%; /* Zoom in heavily to cover black lines */
+            height: 155%;
+            object-fit: contain; /* Keep proportional */
+            display: block;
+            pointer-events: none;
+            image-rendering: high-quality;
+            transition: filter 0.5s ease, transform 0.8s ease; 
         }
 
-        .navbar a:hover {
-            background-color: #2f71a4;
-            color: #b1bbbe;
-            transform: scale(1.05);
-            border-radius: 5px;
+        /* Saturn has horizontal rings so it bypasses the spherical crop */
+        .planet-node.is-saturn {
+            aspect-ratio: auto;
+            border-radius: 0;
+            box-shadow: none; 
+            overflow: visible;
         }
 
-        .planet-container {
-            display: flex;
-            height: 100vh;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
+        .planet-node.is-saturn img { 
+            width: 100%; 
+            height: auto; 
+            transform: scale(1.4); /* Make Saturn large too */
+            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.15));
         }
 
-        .planet {
-            position: relative;
-            height: 100vh;
+        .planet-node.is-saturn.active img { transform: scale(1.8); }
+
+        /* Carousel States - Dynamic Arched Trajectory */
+        
+        .planet-node.active {
+            top: 48%; /* Shifted up slightly to guarantee all text fits in viewport */
+            left: 50%;
+            z-index: 20;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+            cursor: pointer;
         }
 
-        .textbox {
+        .planet-node.active:hover { transform: translate(-50%, -50%) scale(1.08) rotate(0deg); }
+
+        .planet-node.prev-1 { top: 54%; left: 20%; opacity: 0.9; filter: blur(2px); z-index: 15; transform: translate(-50%, -50%) scale(0.35) rotate(-15deg); }
+        .planet-node.prev-2 { top: 62%; left: -2%; opacity: 0.5; filter: blur(5px); z-index: 10; transform: translate(-50%, -50%) scale(0.18) rotate(-30deg); }
+        .planet-node.prev-3 { top: 68%; left: -15%; opacity: 0.2; filter: blur(8px); z-index: 5;  transform: translate(-50%, -50%) scale(0.1)  rotate(-45deg); }
+        .planet-node.hidden-l { top: 75%; left: -25%; opacity: 0; filter: blur(12px); z-index: 1; transform: translate(-50%, -50%) scale(0.05) rotate(-60deg); }
+
+        .planet-node.next-1 { top: 54%; left: 80%; opacity: 0.9; filter: blur(2px); z-index: 15; transform: translate(-50%, -50%) scale(0.35) rotate(15deg); }
+        .planet-node.next-2 { top: 62%; left: 102%; opacity: 0.5; filter: blur(5px); z-index: 10; transform: translate(-50%, -50%) scale(0.18) rotate(30deg); }
+        .planet-node.next-3 { top: 68%; left: 115%; opacity: 0.2; filter: blur(8px); z-index: 5;  transform: translate(-50%, -50%) scale(0.1)  rotate(45deg); }
+        .planet-node.hidden-r { top: 75%; left: 125%; opacity: 0; filter: blur(12px); z-index: 1; transform: translate(-50%, -50%) scale(0.05) rotate(60deg); }
+
+        /* Animations removed as requested */
+
+        /* === UI Typography & Details (Animated) === */
+        #planet-info-layer {
             position: absolute;
-            top: 70%;
-            left: 150px;
-            transform: translateY(-50%);
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.466);
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 30;
         }
 
-        .textbox h2 {
-            color: bisque;
+        .info-content {
+            position: absolute;
+            top: 62%; /* Shifted UP to prevent the button from spilling past bottom screen */
+            left: 50%;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            font-style: orbitron;
+            transform: translate(-50%, -10px);
+            transition: all 0.5s ease;
+            opacity: 0;
         }
 
-        .textbox p {
-            font-size: 18px;
-            color: rgb(182, 220, 207);
-            font-style: share tech mono;
+        .info-content.visible {
+            opacity: 1;
+            transform: translate(-50%, -30px);
         }
 
-        .readmore {
-            text-align: center;
+        /* Title: ( earth ) */
+        .planet-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 12px;
+            color: #fff;
+            text-transform: lowercase;
+            margin-bottom: 12px; /* Tightened visually */
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        .readmore a {
-            color: rgb(130, 107, 79);
-            transition: 0.3s ease;
+        .planet-name::before { content: "( "; color: rgba(255,255,255,0.3); font-weight: 100; margin-right: 15px;}
+        .planet-name::after { content: " )"; color: rgba(255,255,255,0.3); font-weight: 100; margin-left: 15px;}
+
+        /* Decription: 2 lines max */
+        .planet-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85); /* Slightly brighter for contrast */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Add drop shadow for readability */
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 25px; /* Pull the Explore Button closer */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            letter-spacing: 0.5px;
         }
 
-        .readmore a:hover {
-            color: rgb(171, 136, 136);
-            border-color: rgb(222, 201, 201);
-            letter-spacing: 1px;
+        /* Glassmorphic Pill Button */
+        .explore-btn {
+            pointer-events: auto;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 35px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0);
+            pointer-events: auto; /* Re-enable clicks inside info-layer */
+        }
+
+        .explore-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 5px 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .explore-btn i {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        /* === Responsive Phone / Tablet Design === */
+        @media (max-width: 900px) {
+            .planet-node { width: 55vw; }
+            .planet-name { font-size: 40px; }
+            .info-content { top: 75%; }
+            .nav-btn.prev { left: 10%; top: 50%; }
+            .nav-btn.next { right: 10%; top: 50%; }
+            .planet-node.prev-1 { left: 5%; }
+            .planet-node.next-1 { left: 95%; }
+            .planet-node.prev-2, .planet-node.next-2, .planet-node.prev-3, .planet-node.next-3 { opacity: 0 !important; pointer-events: none; }
+        }
+
+        @media (max-width: 600px) {
+            .planet-node { width: 65vw; top: 40%; }
+            .planet-node.active { top: 40%; }
+            .planet-node.prev-1, .planet-node.next-1 { top: 40%; opacity: 0; } /* Hide adjacent entirely on mobile bounds */
+            
+            .planet-name { font-size: 32px; letter-spacing: 5px; margin-bottom: 10px; }
+            .planet-desc { font-size: 14px; padding: 0 20px; line-height: 1.4; }
+            .info-content { top: 70%; transform: translate(-50%, 0); }
+            .info-content.visible { transform: translate(-50%, -20px); }
+            
+            .nav-btn.prev { left: 5%; top: 40%; }
+            .nav-btn.next { right: 5%; top: 40%; }
+            
+            .saas-nav { padding: 15px 10px; }
+            .nav-links { gap: 15px; padding: 10px 15px; font-size: 0.85rem;}
+        }
+
+        /* === Space UX Spotlight === */
+        #cursor-glow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(140, 200, 255, 0.15) 0%, rgba(50, 100, 200, 0.05) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            mix-blend-mode: screen;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
-
 <body>
-    <div class="navbar">
-        <a href="home.html">🏠 Home</a>
-        <a href="#planet1">Mercury</a>
-        <a href="#planet2">Venus</a>
-        <a href="#planet3">Earth</a>
-        <a href="#planet4">Mars</a>
-        <a href="#planet5">Jupiter</a>
-        <a href="#planet6">Saturn</a>
-        <a href="#planet7">Uranus</a>
-        <a href="#planet8">Neptune</a>
-        <a href="signup.html">🚀 Sign Up</a>
+
+    <!-- Ambient Space Spotlight -->
+    <div class="stars-bg"></div>
+    <div class="stars-bg-deep"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- Mission Branding (Top Left) -->
+    <div class="brand-logo-container">
+        <div class="brand-icon">
+            <i class="fa-solid fa-satellite"></i>
+        </div>
+        <div class="brand-text">
+            <div class="brand-title">COSMOS</div>
+            <div class="brand-subtitle">EXPLORER</div>
+        </div>
+    </div>
+
+    <!-- Clean Top Navigation (Matches Homepage saas-nav exactly) -->
+    <nav class="saas-nav">
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="Planets.html" class="active">Planets</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="funfacts.html">Fun Facts</a>
+            <a href="home.html#about">About</a>
+        </div>
+    </nav>
+
+    <!-- 3D Planet Carousel Container -->
+    <div id="carousel-container">
+
+        <!-- Navigation Arrows -->
+        <button class="nav-btn prev" id="btn-prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="nav-btn next" id="btn-next"><i class="fa-solid fa-arrow-right"></i></button>
+
+        <!-- Planet Image Nodes (Populated via JS) -->
+        <div id="planet-track">
+            <!-- Images go here -->
+        </div>
+
+        <!-- Typography / UI Overlay Layer -->
+        <div id="planet-info-layer">
+            <div class="info-content" id="info-content">
+                <div class="planet-name" id="display-name">earth</div>
+                <p class="planet-desc" id="display-desc">The only known planet to support life, with vast oceans, green landscapes, and an atmosphere rich in oxygen.</p>
+                <a href="earth.html" class="explore-btn" id="display-link">
+                    Explore Planet <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
 
     </div>
-    <div class="planet-container">
 
-        <section class="planet" id="planet1">
-            <img src="D:\space photos\m2.jpg" alt="Mercury" height="800px" width="1300px">
-            <div class="textbox">
-                <h2>Mercury</h2>
-                <p>Mercury is the smallest planet in our solar system, closest to the Sun, and named after the Roman
-                    messenger god known for his speed</p>
-                <div class="readmore">
-                    <a href="mercury.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
+    <!-- Logic Engine -->
+    <script>
+        const planetsData = [
+            { id: 'mercury', name: 'Mercury', desc: 'The smallest planet in our solar system, closest to the Sun, known for extreme temperature swings.', src: 'pic/transparent_planets/mercury_transparent.png', link: 'mercury.html' },
+            { id: 'venus',   name: 'Venus',   desc: 'Shrouded in thick clouds of sulfuric acid. A true greenhouse inferno and the hottest planet.', src: 'pic/transparent_planets/venus_transparent.png', link: 'venus.html' },
+            { id: 'earth',   name: 'Earth',   desc: 'The only known planet to support life, with vast oceans, green landscapes, and a breathable atmosphere.', src: 'pic/transparent_planets/earth_transparent.png', link: 'earth.html' },
+            { id: 'mars',    name: 'Mars',    desc: 'A cold desert world with the tallest volcano and deepest canyon in the solar system.', src: 'pic/transparent_planets/mars_transparent.png', link: 'mars.html' },
+            { id: 'jupiter', name: 'Jupiter', desc: 'The largest planet, a massive gas giant with a Great Red Spot storm and dozens of moons.', src: 'pic/transparent_planets/jupiter_transparent.png', link: 'jupiter.html' },
+            { id: 'saturn',  name: 'Saturn',  desc: 'Famous for its stunning, complex ring system composed of billions of pieces of ice and rock.', src: 'pic/transparent_planets/saturn_transparent.png', link: 'saturn.html' },
+            { id: 'uranus',  name: 'Uranus',  desc: 'An ice giant tilted nearly on its side, rolling through its orbit with a pale blue methane atmosphere.', src: 'pic/transparent_planets/uranus_transparent.png', link: 'uranus.html' },
+            { id: 'neptune', name: 'Neptune', desc: 'The farthest known planet, deep blue, freezing cold, and swept by supersonic winds.', src: 'pic/transparent_planets/neptune_transparent.png', link: 'neptune.html' }
+        ];
 
-        <section class="planet" id="planet2">
-            <img src="C:\Users\KRISHA\Downloads\steptodown.com757949.jpg" alt="venus" height="700px" width="1300px">
-            <div class="textbox">
-                <h2>venus</h2>
-                <p>Venus is shrouded in thick clouds of sulfuric acid. It’s the hottest planet, with a surface hot
-                    enough to melt lead a true greenhouse inferno.</p>
-                <div class="readmore">
-                    <a href="venus.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
+        let currentIndex = 2; // Start on Earth to show adjacent planets
+        const track = document.getElementById('planet-track');
+        const nodes = [];
 
-        <section class="planet" id="planet3">
-            <img src="C:\Users\KRISHA\Downloads\steptodown.com899141.jpg" alt="Earth" height="700px" width="1300px">
-            <div class="textbox">
-                <h2>Earth</h2>
-                <p>Earth is the only known planet to support life, with vast oceans, green landscapes, and an atmosphere
-                    rich in oxygen and nitrogen.</p>
-                <div class="readmore">
-                    <a href="earth.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
+        const uiContent = document.getElementById('info-content');
+        const uiTitle = document.getElementById('display-title');
+        const uiName = document.getElementById('display-name');
+        const uiDesc = document.getElementById('display-desc');
+        const uiLink = document.getElementById('display-link');
 
+        // Initialize DOM Elements
+        function initCarousel() {
+            planetsData.forEach((planet, index) => {
+                // Nodes
+                const node = document.createElement('div');
+                node.className = `planet-node is-${planet.id}`;
+                node.dataset.index = index;
 
-        <section class="planet" id="planet4">
-            <img src="D:\space photos\hmars.jpg" alt="Mars" height="800px" width="1300px">
-            <div class="textbox">
-                <h2>Mars</h2>
-                <p>Mars,is a cold desert world with the tallest volcano and deepest canyon in the solar
-                    system.It’s a top candidate for future human exploration.</p>
-                <div class="readmore">
-                    <a href="mars.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
+                const img = document.createElement('img');
+                img.src = planet.src;
+                img.alt = planet.name;
+                
+                node.appendChild(img);
+                node.addEventListener('click', () => {
+                    if (index !== currentIndex) goToIndex(index);
+                    else window.location.href = planet.link;
+                });
+                track.appendChild(node);
+                nodes.push(node);
+            });
+            updateCarousel();
+        }
 
-        <section class="planet" id="planet5">
-            <img src="C:\Users\KRISHA\Downloads\steptodown.com104914 (1) (1).jpg" alt="Jupiter" height="800px" width="1300px">
-            <div class="textbox">
-                <h2>Jupiter</h2>
-                <p>Jupiter is the largest planet, a gas giant with a massive red storm and dozens of moons. Its strong
-                    magnetic field is the most powerful of any planet.</p>
-                <div class="readmore">
-                    <a href="jupiter.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
+        // Update the visual classes and UI text
+        function updateCarousel() {
+            // Fade out UI text
+            uiContent.classList.remove('visible');
 
-        <section class="planet" id="planet6">
-            <img src="C:\Users\KRISHA\Downloads\steptodown.com473914.jpg" alt="Saturn" height="800px" width="1300px">
-            <div class="textbox">
-                <h2>Saturn</h2>
-                <p>Saturn is famous for its stunning ring system made of ice and rock. It's a gas giant with a low
-                    density — it would float if placed in water!</p>
-                <div class="readmore">
-                    <a href="saturn.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
+            // Set classes on all nodes mapping outward from active center
+            nodes.forEach((node, i) => {
+                let diff = i - currentIndex;
+                
+                // Infinite Loop Wrapping Logic for 8 planets
+                if (diff > 4) diff -= planetsData.length;
+                if (diff < -4) diff += planetsData.length;
 
-        <section class="planet" id="planet7">
-            <img src="C:\Users\KRISHA\Downloads\steptodown.com598346.jpg" alt="Uranus" height="700px" width="1300px">
-            <div class="textbox">
-                <h2>Uranus</h2>
-                <p>Uranus is tilted on its side and spins like a rolling ball. It’s an icy giant with a pale blue color
-                    due to methane in its atmosphere.</p>
-                <div class="readmore">
-                    <a href="uranus.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
-        <section class="planet" id="planet8">
-            <img src="C:\Users\KRISHA\Downloads\steptodown.com404192 (1).jpg" alt="Neptune" height="600px" width="1300px">
-            <div class="textbox">
-                <h2>Neptune</h2>
-                <p>Neptune is the farthest known planet, dark and cold with supersonic winds. It’s deep blue in color
-                    and home to the fastest winds in the solar system.</p>
-                <div class="readmore">
-                    <a href="neptune.html">READ MORE</a>
-                </div>
-            </div>
-        </section>
-    </div>
-    </div>
-    <hr>
-     <footer>
-        <p style="text-align:center">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
-    </footer>
+                const planetId = planetsData[i].id;
+                
+                node.className = `planet-node is-${planetId}`; // Reset base
+                
+                if (diff === 0) node.classList.add('active');
+                else if (diff === -1) node.classList.add('prev-1');
+                else if (diff === -2) node.classList.add('prev-2');
+                else if (diff === -3) node.classList.add('prev-3');
+                else if (diff <= -4) node.classList.add('hidden-l');
+                else if (diff === 1) node.classList.add('next-1');
+                else if (diff === 2) node.classList.add('next-2');
+                else if (diff === 3) node.classList.add('next-3');
+                else if (diff >= 4) node.classList.add('hidden-r');
+            });
+
+            // Delay updating the text until the slide transition is halfway done
+            setTimeout(() => {
+                const activePlanet = planetsData[currentIndex];
+                uiName.textContent = activePlanet.name;
+                uiDesc.textContent = activePlanet.desc;
+                uiLink.href = activePlanet.link;
+                
+                // Fade UI text back in
+                uiContent.classList.add('visible');
+            }, 300); // 300ms matches halfway of the CSS 0.8s transition
+        }
+
+        // Navigation Controllers
+        function goToIndex(idx) {
+            // Unbound limits for infinite loop
+            if (idx < 0) idx = planetsData.length - 1;
+            if (idx >= planetsData.length) idx = 0;
+            
+            if (idx === currentIndex) return;
+            
+            currentIndex = idx;
+            updateCarousel();
+        }
+
+        document.getElementById('btn-prev').addEventListener('click', () => goToIndex(currentIndex - 1));
+        document.getElementById('btn-next').addEventListener('click', () => goToIndex(currentIndex + 1));
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') goToIndex(currentIndex - 1);
+            if (e.key === 'ArrowRight') goToIndex(currentIndex + 1);
+        });
+
+        // === Interactive Background & Parallax UX ===
+        const container = document.getElementById('carousel-container');
+        const uxCursorGlow = document.getElementById('cursor-glow');
+
+        // Capture mouse movement across the entire document
+        document.addEventListener('mousemove', (e) => {
+            // Flashlight Glow Tracking
+            uxCursorGlow.style.left = `${e.clientX}px`;
+            uxCursorGlow.style.top = `${e.clientY}px`;
+            uxCursorGlow.style.opacity = '1';
+
+            // Calculate offset (-1 to 1)
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+            // Shift Background Stars (Moving contrary to cursor for extreme depth)
+            document.documentElement.style.setProperty('--px', `${x * -60}px`);
+            document.documentElement.style.setProperty('--py', `${y * -60}px`);
+
+            // 3D Planet Tilt inside the Carousel
+            const activeNode = nodes[currentIndex];
+            if(activeNode) {
+                // Apply rotation (inverse to mouse movement) for 3D tilt feeling
+                activeNode.style.transform = `translate(-50%, -50%) scale(1.05) rotateX(${-y * 12}deg) rotateY(${x * 12}deg)`;
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            uxCursorGlow.style.opacity = '0';
+            const activeNode = nodes[currentIndex];
+            if(activeNode) {
+                activeNode.style.transform = `translate(-50%, -50%) scale(1.05)`; 
+            }
+            document.documentElement.style.setProperty('--px', `0px`);
+            document.documentElement.style.setProperty('--py', `0px`);
+        });
+
+        // Start initialization
+        window.addEventListener('DOMContentLoaded', initCarousel);
+
+    </script>
 </body>
-
 </html>

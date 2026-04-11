@@ -1,35 +1,309 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System Explorer</title>
-    <link rel="stylesheet" href="home.css">
+    <!-- Modern FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css?v=6">
 </head>
+<body>
 
-<body style="background: #000;">
+    <!-- Fixed Core Backgrounds stays locked while content scrolls across it -->
+    <canvas id="star-canvas"></canvas>
+    <div id="ui-overlay" class="ui-overlay"></div>
 
-    <header style="background: #000;">
-        <h1 style="text-align:center;">Solar System Explorer</h1>
-        <p style="text-align:center; font-size:18px;">Explore the wonders of our solar neighborhood</p>
-    </header>
+    <!-- 1. FULLSCREEN HERO SECTION -->
+    <section class="hero-section" id="hero">
+        
+        <!-- Mission Branding (Top Left) -->
+        <div class="brand-logo-container">
+            <div class="brand-icon">
+                <i class="fa-solid fa-satellite"></i>
+            </div>
+            <div class="brand-text">
+                <div class="brand-title">COSMOS</div>
+                <div class="brand-subtitle">EXPLORER</div>
+            </div>
+        </div>
 
-    <div class="nav">
-        <ul>
-            <li><a href="Planets.html">Planets</a></li>
-            <li><a href="orbit.html">Orbit Explorer</a></li>
-            <li><a href="aboutsolarsystem.html">About the Solar System</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="funfacts.html">Fun Facts</a></li>
-        </ul>
-    </div>
-    <div class="solarsystem">
-        <img src="D:\space photos\steptodown.com157708.jpg" alt="solar system" height="700" width="1265">
-        <hr>
-        <footer>
-            <p style="text-align:center;">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
-        </footer>
+        <!-- Premium Top Navbar -->
+        <nav class="saas-nav">
+            <div class="nav-links">
+                <a href="home.html" class="active">Home</a>
+                <a href="#planets">Overview</a>
+                <a href="Planets.html">Planets</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="funfacts.html">Fun Facts</a>
+                <a href="#about">About</a>
+            </div>
+        </nav>
 
+        <!-- Header Titles -->
+        <header class="title-container">
+            <h1>Solar System Explorer</h1>
+            <p>Explore the wonders of our solar neighborhood</p>
+        </header>
+
+        <!-- 2D Planet Lineup -->
+        <div class="solar-system-canvas">
+            <div class="planet-node sun anim-slow-spin" data-planet="Sun" data-fact="The heart of our solar system.">
+                <img src="space photos/sun rbg.png" alt="Sun">
+            </div>
+            <a href="mercury.html" class="planet-node mercury hotspot" data-planet="Mercury" data-fact="The smallest and closest planet to the Sun.">
+                <img src="pic/transparent_planets/mercury_transparent.png" alt="Mercury">
+            </a>
+            <a href="venus.html" class="planet-node venus hotspot" data-planet="Venus" data-fact="The hottest planet in our solar system.">
+                <img src="pic/transparent_planets/venus_transparent.png" alt="Venus">
+            </a>
+            <a href="earth.html" class="planet-node earth hotspot" data-planet="Earth" data-fact="Our home—the only known planet with life.">
+                <img src="pic/transparent_planets/earth_transparent.png" alt="Earth">
+            </a>
+            <a href="mars.html" class="planet-node mars hotspot" data-planet="Mars" data-fact="The Red Planet, home to Olympus Mons.">
+                <img src="pic/transparent_planets/mars_transparent.png" alt="Mars">
+            </a>
+            <a href="jupiter.html" class="planet-node jupiter hotspot" data-planet="Jupiter" data-fact="The largest planet—a massive gas giant.">
+                <img src="pic/transparent_planets/jupiter_transparent.png" alt="Jupiter">
+            </a>
+            <a href="saturn.html" class="planet-node saturn hotspot" data-planet="Saturn" data-fact="Famous for its spectacular ring system.">
+                <img src="pic/transparent_planets/saturn_transparent.png" alt="Saturn">
+            </a>
+            <a href="uranus.html" class="planet-node uranus hotspot" data-planet="Uranus" data-fact="An ice giant that rotates on its side.">
+                <img src="pic/transparent_planets/uranus_transparent.png" alt="Uranus">
+            </a>
+            <a href="neptune.html" class="planet-node neptune hotspot" data-planet="Neptune" data-fact="The most distant and coldest planet.">
+                <img src="pic/transparent_planets/neptune_transparent.png" alt="Neptune">
+            </a>
+        </div>
+
+        <!-- Action Center (Bottom Left) -->
+        <div class="action-buttons-left">
+            <a href="Planets.html" class="glass-btn btn-explore">
+                <i class="fa-solid fa-rocket"></i> Start Exploring
+            </a>
+            <a href="quiz.html" class="glass-btn">
+                <i class="fa-solid fa-gamepad"></i> Take Quiz
+            </a>
+        </div>
+
+
+
+    </section>
+
+
+    </section>
+
+    <!-- 2. ABOUT SOLAR SYSTEM SECTION -->
+    <section id="about" class="content-section">
+        <h2 class="section-title">About the Solar System</h2>
+        <div class="glass-panel">
+            <p>Our solar system is a vast and dynamic cosmic neighborhood consisting of the Sun—an average star in the Milky Way galaxy—and those objects bound to it by gravity. This includes eight distinct planets, their 200+ known moons, and countless asteroids, comets, and meteoroids.</p>
+            <br>
+            <p>The system is generally divided into the inner rocky planets (Mercury, Venus, Earth, Mars) and the outer gas and ice giants (Jupiter, Saturn, Uranus, Neptune). Join us on this journey to deeply explore these magnificent celestial bodies floating eternally in the void.</p>
+        </div>
+    </section>
+
+    <!-- 3. PLANETS OVERVIEW SECTION -->
+    <section id="planets" class="content-section">
+        <h2 class="section-title">Celestial Lineup</h2>
+        <div class="horizontal-scroll-container">
+            <a href="mercury.html" class="planet-card">
+                <h3>Mercury</h3>
+                <p>The swiftest planet in our solar system, whipping around the Sun in just 88 days.</p>
+            </a>
+            <a href="venus.html" class="planet-card">
+                <h3>Venus</h3>
+                <p>A toxic, super-heated greenhouse world shrouded in thick yellowish clouds of acid.</p>
+            </a>
+            <a href="earth.html" class="planet-card">
+                <h3>Earth</h3>
+                <p>Our precious oasis. The only place we know of in the entire universe where life exists.</p>
+            </a>
+            <a href="mars.html" class="planet-card">
+                <h3>Mars</h3>
+                <p>A cold desert world covered in iron oxide frost, hiding enormous dead volcanoes.</p>
+            </a>
+            <a href="jupiter.html" class="planet-card">
+                <h3>Jupiter</h3>
+                <p>A gas giant with mass more than twice that of all other planets combined.</p>
+            </a>
+            <a href="saturn.html" class="planet-card">
+                <h3>Saturn</h3>
+                <p>Adorned with a dazzling, complex system of icy rings; the jewel of the system.</p>
+            </a>
+            <a href="uranus.html" class="planet-card">
+                <h3>Uranus</h3>
+                <p>An ice giant that bizarrely rotates on its side, making it look like a rolling barrel.</p>
+            </a>
+            <a href="neptune.html" class="planet-card">
+                <h3>Neptune</h3>
+                <p>The most distant planet. It is dark, extremely cold, and whipped by supersonic winds.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 4. FUN FACTS SECTION -->
+    <section id="funfacts" class="content-section">
+        <h2 class="section-title">Cosmic Fun Facts</h2>
+        <div class="glass-panel">
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-star" style="color: #66b3ff; margin-right: 12px;"></i>
+                    <strong>A Year on Venus:</strong> A day on Venus is actually longer than its year! It takes Venus longer to rotate once on its axis than to complete one orbit around the Sun.
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-star" style="color: #66b3ff; margin-right: 12px;"></i>
+                    <strong>Footprints on the Moon:</strong> The footprints left by Apollo astronauts will likely stay there for millions of years since there is no atmospheric wind to blow them away.
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <i class="fa-solid fa-star" style="color: #66b3ff; margin-right: 12px;"></i>
+                    <strong>Saturn's Density:</strong> Saturn is the only planet in our solar system that is less dense than water. If you had an ocean big enough, Saturn would effortlessly float like an apple!
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. QUIZ SECTION -->
+    <section id="quiz" class="content-section" style="margin-bottom: 15vh;">
+        <h2 class="section-title">Test Your Space Knowledge</h2>
+        <div class="glass-panel" style="text-align: center;">
+            <p>Think you know everything about our cosmic neighbors? Take our quick interactive quiz to find out if you are a true Space Explorer!</p>
+            <div class="action-center">
+                <a href="quiz.html" class="glass-btn btn-explore" style="padding: 0 40px;">
+                    <i class="fa-solid fa-flag-checkered"></i> Launch Quiz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER SECTION -->
+    <footer class="minimalist-footer">
+        <div class="footer-content">
+            <p>Designed & Developed by <span style="color: #66b3ff; font-weight: 500;">Krisha Vaghani</span></p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="Planets.html">Planets</a>
+                <a href="quiz.html">Quiz</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Tracker Tooltip -->
+    <div id="cursor-tooltip" class="cursor-tooltip"></div>
+
+    <!-- Integrated JavaScript for SaaS Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // ==========================================
+            // CANVAS STARFIELD & PARALLAX ENGINE
+            // ==========================================
+            const canvas = document.getElementById('star-canvas');
+            const ctx = canvas.getContext('2d');
+            let stars = [];
+            let width, height;
+            
+            // Mouse tracking
+            let mouse = { x: 0, y: 0 };
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            // Populate Universe
+            function initStars() {
+                stars = [];
+                const numStars = window.innerWidth < 768 ? 150 : 350;
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width * 1.2 - (width * 0.1), // Pad bounds for parallax leeway
+                        y: Math.random() * height * 1.2 - (height * 0.1),
+                        baseX: Math.random() * width * 1.2 - (width * 0.1),
+                        baseY: Math.random() * height * 1.2 - (height * 0.1),
+                        radius: Math.random() * 1.5 + 0.1,
+                        depth: Math.random() * 2 + 0.5, // Used for parallax weight
+                        velX: (Math.random() - 0.5) * 0.1, // Ambient drift
+                        velY: (Math.random() - 0.5) * 0.1,
+                        alpha: Math.random(),
+                        twinkleSpeed: Math.random() * 0.02 + 0.005
+                    });
+                }
+            }
+            initStars();
+
+            function animateStars() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Calculate center offset for mouse parallax
+                const mouseOffsetX = (mouse.x - width / 2) * 0.05;
+                const mouseOffsetY = (mouse.y - height / 2) * 0.05;
+
+                stars.forEach(star => {
+                    // Update ambient drift
+                    star.baseX += star.velX;
+                    star.baseY += star.velY;
+                    
+                    // Wrapping borders smoothly
+                    if(star.baseX > width * 1.1) star.baseX = -width * 0.1;
+                    if(star.baseX < -width * 0.1) star.baseX = width * 1.1;
+                    if(star.baseY > height * 1.1) star.baseY = -height * 0.1;
+                    if(star.baseY < -height * 0.1) star.baseY = height * 1.1;
+
+                    // Apply parallax shift inversely proportional to depth
+                    star.x = star.baseX - (mouseOffsetX / star.depth);
+                    star.y = star.baseY - (mouseOffsetY / star.depth);
+
+                    // Twinkle opacity
+                    star.alpha += star.twinkleSpeed;
+                    const finalAlpha = Math.abs(Math.sin(star.alpha)) * 0.8 + 0.2; // 0.2 min brightness
+
+                    // Draw
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${finalAlpha})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animateStars);
+            }
+            animateStars();
+
+            // ==========================================
+            // EXISTING LOGIC (Tracker, Tooltip, Toggles)
+            // ==========================================
+            
+            const hotspots = document.querySelectorAll(".hotspot");
+
+            // 2. Cursor Tooltip Tracking
+            const tooltip = document.getElementById("cursor-tooltip");
+            document.addEventListener("mousemove", (e) => {
+                // Offset slightly from cursor to not block click
+                tooltip.style.left = (e.clientX + 15) + "px";
+                tooltip.style.top = (e.clientY + 15) + "px";
+            });
+
+            hotspots.forEach(spot => {
+                spot.addEventListener("mouseenter", () => {
+                    const pname = spot.getAttribute("data-planet");
+                    const pfact = spot.getAttribute("data-fact");
+                    tooltip.innerHTML = `<strong>${pname}</strong>${pfact}`;
+                    tooltip.classList.add("visible");
+                });
+                spot.addEventListener("mouseleave", () => {
+                    tooltip.classList.remove("visible");
+                });
+            });
+
+
+        });
+    </script>
 </body>
-
 </html>

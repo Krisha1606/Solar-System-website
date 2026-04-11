@@ -1,108 +1,271 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mars - Solar System Explorer</title>
-    <style>
-        * {
-                padding: 0%;
-                margin: 0%;
-            }
-            header{
-            background: linear-gradient(360deg, #121227, #030337);
-            margin: 0px;
-            padding: 10px;
-            color: beige;
-            }
-            body {
-            background-color: #121227;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            padding: 20px;
-            color: antiquewhite;
-        }
-
-        img {
-            display: block;
-            border-radius: 20px;
-            border-color: rgb(210, 184, 149);
-            margin: 20px auto;
-            box-shadow: wheat;
-        }
-
-        img:hover {
-            box-shadow: 0 0 6px skyblue;
-            transition: box-shadow 0.3s ease;
-        }
-        h2{
-            color: rgb(103, 138, 196);
-            padding: 10px 10px;
-        }
-        a{
-            display:inline-block;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #00acee;
-            font-weight: bold;
-            padding: 10px;
-            transition: color 0.3s ease;
-        }
-        a:hover{
-           color: #eca312;
-           text-decoration: underline;
-        }
-    </style>
+    <meta name="description" content="Explore Mars: facts, geology, atmosphere, and mission data in an immersive NASA-style experience.">
+    <link rel="stylesheet" href="planet-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <h1 style="text-align:center;">🚀 Mars - Solar System Explorer</h1>
-    </header>
+<!-- Mission Branding (Top Left) -->
+<div class="brand-logo-container">
+    <div class="brand-icon">
+        <i class="fa-solid fa-satellite"></i>
+    </div>
+    <div class="brand-text">
+        <div class="brand-title">COSMOS</div>
+        <div class="brand-subtitle">EXPLORER</div>
+    </div>
+</div>
 
-    <hr>
+<!-- Navigation -->
+<nav class="saas-nav">
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="Planets.html">Planets</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="funfacts.html">Facts</a>
+    </div>
+</nav>
 
-    <div style="text-align: center;">
-        <img 
-            src="https://miro.medium.com/v2/resize:fit:2560/format:webp/1*2n6yiV0A8p8Lyk55gId23Q.jpeg" 
-            alt="Mars" 
-            width="750" 
-            height="450">
+<!-- ========== HERO ========== -->
+<section class="hero-section">
+
+    <!-- Left: Planet Visual (Restored 2D) -->
+    <div class="hero-planet-wrap">
+        <img src="pic/transparent_planets/mars_transparent.png"
+             alt="Mars" class="hero-planet-img" id="hero-img">
     </div>
 
-    <h2>Quick Facts</h2>
-    <ul>
-        <li><strong>Type:</strong> Rocky Planet</li>
-        <li><strong>Diameter:</strong> 6,779 km</li>
-        <li><strong>Distance from the Sun:</strong> ~227.9 million km</li>
-        <li><strong>Length of a Day:</strong> 24.6 hours</li>
-        <li><strong>Orbit Period:</strong> 687 Earth days</li>
-        <li><strong>Moons:</strong> 2 (Phobos and Deimos)</li>
-        <li><strong>Surface Temperature:</strong> -125°C to 20°C</li>
-        <li><strong>Atmosphere:</strong> Thin, mostly carbon dioxide</li>
-        <li><strong>Interesting Fact:</strong> Mars is home to the tallest volcano in the solar system — Olympus Mons!</li>
-    </ul>
+    <!-- Right: Title & Quick Stats -->
+    <div class="hero-content">
+        <div class="hero-type-label">TERRESTRIAL PLANET</div>
+        <h1 class="hero-planet-name">M A R S</h1>
+        
+        <div class="hero-stats-bar">
+            <div class="hero-stat">
+                <div class="hero-stat-label">Radius</div>
+                <div class="hero-stat-value">3,389 km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Distance (AU)</div>
+                <div class="hero-stat-value">228M km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Day Length</div>
+                <div class="hero-stat-value">24.6 Hours</div>
+            </div>
+        </div>
+    </div>
 
-    <h2>About Mars</h2>
-    <p>Mars is the fourth planet from the Sun, often called the "Red Planet" due to its rusty appearance. It’s a cold, desert-like rocky world with a thin atmosphere composed mainly of carbon dioxide. Temperatures range from −153°C to 20°C, and its surface gravity is about one-third that of Earth.</p>
+    <div class="scroll-invite">
+        <span>Scroll to Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+    </div>
+</section>
 
-    <p>Water exists on Mars as ice in polar caps, permafrost, and occasional frost or clouds, but not in liquid form. Mars has a rich geological history, including massive volcanoes, ancient riverbeds, and vast canyons. It is roughly half the size of Earth but has land surface area equivalent to Earth’s dry land.</p>
+<!-- ========== CONTENT AREA ========== -->
+<div class="content-area">
+    <div class="scroll-layout">
+        
+        <!-- Sidebar: planet thumb + navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-planet-thumb">
+                <img src="pic/transparent_planets/mars_transparent.png" alt="Mars">
+            </div>
+            <div class="planet-nav">
+                <a href="earth.html" class="planet-nav-btn">
+                    <i class="fa-solid fa-chevron-left"></i> EARTH
+                </a>
+                <a href="jupiter.html" class="planet-nav-btn">
+                    JUPITER <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="section-dots" id="section-dots">
+                <div class="section-dot active" data-sec="overview"></div>
+                <div class="section-dot" data-sec="geology"></div>
+                <div class="section-dot" data-sec="atmosphere"></div>
+                <div class="section-dot" data-sec="stats"></div>
+            </div>
+        </aside>
 
-    <p>Scientists divide Mars’s history into three periods: the Noachian (marked by heavy meteor impacts and flowing water), the Hesperian (dominated by volcanic activity and flooding), and the Amazonian (the most recent and ongoing era). The possibility of past or even present life on Mars continues to intrigue researchers and space agencies worldwide.</p>
+        <!-- Main content column -->
+        <main class="main-content">
+            
+            <!-- OVERVIEW -->
+            <div class="detail-section" id="overview">
+                <div class="section-tag">01 — Overview</div>
+                <h2 class="section-heading">Celestial Summary</h2>
+                <p class="section-text">Mars is the fourth planet from the Sun — a cold, dusty desert world with a thin atmosphere. Yet it harbors the most dramatic geology in the Solar System.</p>
+                <p class="section-text">Mars has intrigued scientists for centuries. Evidence of ancient river valleys, lake beds, and minerals that form in water strongly suggest Mars was once a warmer, wetter world capable of supporting life.</p>
+            </div>
 
-    <h2>Learn More</h2>
-    <p>
-        <a href="https://science.nasa.gov/mars/facts/" target="_blank">
-            https://science.nasa.gov/mars/facts/
+            <!-- GEOLOGY -->
+            <div class="detail-section" id="geology">
+                <div class="section-tag">02 — Geology & Structure</div>
+                <h2 class="section-heading">Internal Composition</h2>
+                <p class="section-text">Mars is home to Olympus Mons, the tallest volcano in the Solar System at 21.9 km high — nearly three times the height of Everest. Valles Marineris, a canyon system, stretches over 4,000 km.</p>
+                <p class="section-text">Iron oxide (rust) dust covering the Martian surface gives the planet its iconic red color. This fine dust is also responsible for global dust storms that can engulf the entire planet for months.</p>
+                
+                <div class="highlight-box">
+                    <div class="highlight-box-label">Did you know?</div>
+                    <p class="highlight-box-text">"Scientists have found compelling evidence of ancient liquid water on Mars — including dried riverbeds, lake deposits, and water-formed minerals — raising the possibility that Mars once hosted microbial life."</p>
+                </div>
+            </div>
+
+            <!-- ATMOSPHERE -->
+            <div class="detail-section" id="atmosphere">
+                <div class="section-tag">03 — Atmospheric Data</div>
+                <h2 class="section-heading">Planetary Envelope</h2>
+                <p class="section-text">Mars has a very thin atmosphere composed mostly of carbon dioxide. It provides little insulation or protection from solar radiation, and atmospheric pressure at the surface is less than 1% of Earth's.</p>
+                
+                <div class="composition-bars">
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Carbon Dioxide</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#e09966;width:95%"></div>
+                        </div>
+                        <span class="comp-bar-pct">95%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Nitrogen</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#6fc3f7;width:2.6%"></div>
+                        </div>
+                        <span class="comp-bar-pct">2.6%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Argon</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#9b8fd8;width:1.9%"></div>
+                        </div>
+                        <span class="comp-bar-pct">1.9%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Other</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#5dd4a4;width:0.5%"></div>
+                        </div>
+                        <span class="comp-bar-pct">0.5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA / STATS -->
+            <div class="detail-section" id="stats">
+                <div class="section-tag">04 — Data & Statistics</div>
+                <h2 class="section-heading">Planetary Data</h2>
+                
+                <div class="live-data-card glass-panel" style="margin-bottom: 30px; border-left: 3px solid #66b3ff; background: rgba(100,160,255,0.05);">
+                    <div class="section-tag" style="margin-bottom: 10px;">Live NASA Integration</div>
+                    <div class="stats-grid" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0;">
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Current Distance</div>
+                            <div class="stat-card-value" id="live-dist">Syncing...</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Orbital Speed</div>
+                            <div class="stat-card-value" id="live-speed">Syncing...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-label">Rotation</div>
+                        <div class="stat-card-value">24.6 Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Revolution</div>
+                        <div class="stat-card-value">687 Days</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Moons</div>
+                        <div class="stat-card-value">2</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Avg Temp</div>
+                        <div class="stat-card-value" style="font-size: 1.2rem;">−87 to −5°C</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #5dd4a4; margin-top: 40px;">
+                    <div class="highlight-box-label" style="color: #5dd4a4;">Mission Briefing</div>
+                    <p class="highlight-box-text" style="font-style: normal;">NASA's Perseverance rover is actively exploring Jezero Crater, collecting rock samples for potential future return to Earth. The Ingenuity helicopter became the first powered aircraft to fly on another planet.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Bottom navigation across planets -->
+    <nav class="page-footer-nav">
+        <a href="earth.html" class="footer-nav-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <div>
+                <div class="footer-nav-label">Previous</div>
+                <div class="footer-nav-name">EARTH</div>
+            </div>
         </a>
-    </p>
+        <a href="jupiter.html" class="footer-nav-btn">
+            <div style="text-align: right;">
+                <div class="footer-nav-label">Next Planet</div>
+                <div class="footer-nav-name">JUPITER</div>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </nav>
+</div>
 
-    <hr>
+<!-- Core Scripts -->
+<script src="js/data-fetcher.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Live Data Sync
+        const jplIds = {
+            'mercury': '199', 'venus': '299', 'earth': '399', 'mars': '499',
+            'jupiter': '599', 'saturn': '699', 'uranus': '799', 'neptune': '899'
+        };
+        
+        async function updateLiveStats() {
+            if (!window.JPLFetcher) return;
+            const pos = await window.JPLFetcher.getPlanetPosition(jplIds['mars']);
+            if (pos) {
+                const auToKm = 149597870.7;
+                const distKm = Math.sqrt(pos.x**2 + pos.y**2 + pos.z**2) * auToKm;
+                const distField = document.getElementById('live-dist');
+                const speedField = document.getElementById('live-speed');
+                if (distField) distField.textContent = (distKm / 1e6).toFixed(2) + ' M km';
+                // Simplified speed calculation
+                if (speedField) speedField.textContent = (29.78 / Math.sqrt(distKm/149597870.7)).toFixed(2) + ' km/s';
+            }
+        }
+        updateLiveStats();
+        setInterval(updateLiveStats, 60000);
 
-    <p style="text-align:center;">
-        <a href="home.html">⬅️ Back to Solar System Explorer Home</a>
-    </p>
+        // 2. Scroll-triggered animations
+        const sections = document.querySelectorAll('.detail-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Update dots
+                    const id = entry.target.id;
+                    document.querySelectorAll('.section-dot').forEach(dot => {
+                        dot.classList.toggle('active', dot.getAttribute('data-sec') === id);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
 
-    <footer>
-        <p style="text-align:center;">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
-    </footer>
+        sections.forEach(s => observer.observe(s));
+    });
+</script>
 
 </body>
 </html>

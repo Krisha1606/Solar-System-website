@@ -1,102 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@500;700&display=swap');
+
 * {
-  padding: 0%;
-  margin: 0%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,
-body {
-  background-color: rgb(234, 236, 231);
-  color: rgb(209, 169, 169);
-}
-header {
-  padding: 10px;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-.nav {
-  background: linear-gradient(360deg, #121227, #030337);
-  padding: 10px 0;
-}
-.nav ul {
-  list-style-type: none;
-  text-align: center;
-}
-.nav li {
-  display: inline-block;
-  position: relative;
-  margin: 0 3px;
-  vertical-align: middle;
-
-}
-.nav a {
-  color: #f5f5f9;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 8px 12px;
-  display: inline-block;
-  transition: 0.3s;
-}
-.nav a:hover {
-  background-color: #2f71a4;
-  color: #b1bbbe;
-  transform: scale(1.05);
-  border-radius: 5px;
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    /* Base layer deeply dark space */
+    background: #02040a;
+    scroll-behavior: smooth;
+    position: relative;
 }
 
-/* Dropdown */
-.dropdown .menu {
-  display: none;
-  position: absolute;
-  background-color: #1f1f4a;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.dropdown:hover .menu {
-  display: block;
-}
-.menu li {
-  display: block;
-}
-.menu a {
-  display: block;
-  padding: 10px;
-  text-align: left;
-  margin: 0px 18px;
-}
-.menu a:hover {
-  background-color: #1a2f74;
+/* Layered Nebula Backgrounds */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    /* Cinematic layering with distinct colors originating left-to-right */
+    background: radial-gradient(circle at -10% 50%, rgba(255, 170, 0, 0.25) 0%, rgba(200, 60, 0, 0.15) 30%, transparent 60%),
+                radial-gradient(circle at 40% 60%, rgba(100, 30, 150, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 40%, rgba(10, 40, 100, 0.3) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -3;
 }
 
-.solarsystem {
-  text-align: center;
-  margin-top: 0px;
+/* Canvas Starfield Engine */
+#star-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -2; /* Underneath planets, above nebula background */
 }
-.sun,
-.innerplanet,
-.outerplanet {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin: 20px;
+
+/* Fullscreen Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-.sun img,
-.innerplanet img,
-.outerplanet img {
-  border-radius: 12px;
-  box-shadow: 0 0 10px #00000066;
-  transition: transform 0.3s ease;
+
+/* SaaS Overlay (for focus) - Extremely light */
+.ui-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    pointer-events: none;
+    transition: background-color 0.5s ease;
 }
-.sun img:hover,
-.innerplanet img:hover,
-.outerplanet img:hover {
-  transform: scale(1.05);
+
+body.dark-ui .ui-overlay {
+    background: rgba(0, 0, 0, 0.4);
 }
-.innerplanet h3,
-.outerplanet h3 {
-  width: 100%;
-  text-align: center;
-  margin-top: -10px;
+
+/* Top Navigation - Minimal SaaS Glass */
+.saas-nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 30px;
+    border-radius: 40px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+    color: #e0e5ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    color: #66b3ff;
+    transform: translateY(-1px);
+    text-shadow: 0 0 12px rgba(102, 179, 255, 0.6);
+}
+
+/* Centered Header Titles */
+.title-container {
+    text-align: center;
+    margin-top: 1vh;
+    position: relative;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.title-container h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    opacity: 0.95;
+}
+
+.title-container p {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    margin-top: 8px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Premium Dribbble-Style Brand Logo */
+.brand-logo-container {
+    position: fixed;
+    top: 30px;
+    left: 35px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 100;
+    cursor: default;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-logo-container:hover .brand-icon {
+    transform: translateY(-2px) scale(1.05); border-color: rgba(56, 189, 248, 0.4);
+}
+
+.brand-icon i {
+    color: #38bdf8;
+    font-size: 1.25rem;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.brand-subtitle {
+    font-family: 'Inter', sans-serif;
+    color: #94a3b8;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+/* Left Actions (Explore Mode & Quiz) */
+.action-buttons-left {
+    position: absolute;
+    bottom: 35px;
+    left: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.glass-btn {
+    background: transparent;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 0 20px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-explore {
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+.btn-explore:hover {
+    border-color: rgba(96, 165, 250, 0.8);
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+    background: rgba(37, 99, 235, 0.15);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Right Control Panel */
+.control-panel {
+    position: fixed;
+    bottom: 35px;
+    right: 30px;
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+}
+
+.control-btn {
+    background: transparent;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.control-btn.active {
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.4);
+}
+
+/* =============================================
+   CLEAN SOLAR SYSTEM LAYOUT
+   ============================================= */
+
+/* =============================================
+   CLEAN SOLAR SYSTEM LAYOUT (2D)
+   ============================================= */
+
+.solar-system-canvas {
+    display: block; /* Reactivated for 2D lineup */
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    margin-top: 5vh;
+    pointer-events: none;
+}
+
+
+/* ---- Orbit guide lines (barely visible curves) ---- */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 4vw;
+    width: var(--orbit-size);
+    height: var(--orbit-size);
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* ---- Planet base ---- */
+.planet-node {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 6;
+    /* NO constant glow — clean resting state */
+    filter: none;
+    text-decoration: none;
+    outline: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.planet-node:not(.sun):not(.saturn) {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    /* Removed transparent background to rely on clean masking */
+}
+
+/* ---- 3D Volumetric Overlay for Round Planets ---- */
+.planet-node:not(.sun):not(.saturn)::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    /* Inset shadow creates the spherical depth: dark on the bottom/right, light reflection on top/left */
+    box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.9),
+                inset 8px 8px 15px rgba(255, 255, 255, 0.25);
+    pointer-events: none; /* Passes clicks through to the link */
+    z-index: 10;
+}
+
+.planet-node img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: auto; /* Resetting to auto to avoid sharp-edge artifacts */
+    border: none;
+    outline: none;
+}
+
+.planet-node:not(.sun):not(.saturn) img {
+    object-fit: cover;
+    /* Scale the image up significantly, and shift it left to completely push the thick left-side black shadow out of bounds */
+    transform: scale(1.50) translateX(-6%);
+}
+
+/* ---- Hover ONLY — soft glow + scale ---- */
+.planet-node:hover {
+    transform: translateY(-50%) scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(200, 220, 255, 0.5));
+    z-index: 20;
+}
+
+/* ---- Sun ---- */
+.planet-node.sun {
+    left: -15%;
+    width: 38vw;
+    height: 38vw;
+    filter: drop-shadow(0 0 80px rgba(255, 150, 0, 0.4)) brightness(1.15);
+}
+.planet-node.sun:hover {
+    transform: translateY(-50%) scale(1.03);
+    filter: drop-shadow(0 0 120px rgba(255, 160, 0, 0.6)) brightness(1.3);
+}
+
+/* ---- Planet positions & sizes ----
+   All sizes adjusted slightly smaller for scale
+   -------------------------------------------- */
+.planet-node.mercury { left: 20%;    width: 5.5vw;  }
+.planet-node.venus   { left: 27.7%;  width: 7vw;  }
+.planet-node.earth   { left: 36.9%;  width: 7.5vw;  }
+.planet-node.mars    { left: 46.6%;  width: 6vw;    }
+.planet-node.jupiter { left: 54.8%;  width: 9.5vw;  }
+.planet-node.saturn  { left: 66.5%;  width: 11.5vw; }
+.planet-node.uranus  { left: 80.2%;  width: 7.5vw;  }
+.planet-node.neptune { left: 89.9%;  width: 7vw;    }
+
+/* Artificial atmospheric shadows strictly removed for clean realism */
+
+/* NO atmospheric halos — clean look */
+
+/* Slow Rotation Realism */
+.anim-slow-spin img {
+    animation: slowSpin 120s linear infinite;
+}
+@keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* JS Tracker Tooltip */
+.cursor-tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(10, 15, 25, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    text-align: left;
+    white-space: pre-wrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(15px, 15px);
+    transition: opacity 0.2s ease, visibility 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 200;
+}
+.cursor-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.cursor-tooltip strong {
+    color: #66b3ff;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+/* Toggle utilities */
+.animations-off, .animations-off * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Scrollable Content Sections */
+.content-section {
+    position: relative;
+    z-index: 50;
+    padding: 80px 10%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #eef2ff;
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.glass-panel {
+    background: rgba(15, 23, 42, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.horizontal-scroll-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 1200px;
+    scroll-snap-type: x mandatory;
+}
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
+
+.planet-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background: rgba(10, 15, 30, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease, border-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+.planet-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(96, 165, 250, 0.5);
+    background: rgba(15, 20, 40, 0.3);
+}
+.planet-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #66b3ff;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+.planet-card p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.action-center {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+        padding: 10px 20px;
+    }
+    .title-container h1 {
+        font-size: 2rem;
+    }
+    .glass-btn {
+        padding: 0 15px;
+        font-size: 0.8rem;
+    }
+    .progress-tracker, .action-buttons-left, .control-panel {
+        transform: scale(0.85);
+        transform-origin: bottom left;
+    }
+    .control-panel {
+        transform-origin: bottom right;
+    }
+    .action-buttons-left {
+        bottom: 20px;
+    }
+}
+
+/* Minimalist Footer */
+.minimalist-footer {
+    position: relative;
+    z-index: 50;
+    padding: 30px 10%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(10, 15, 25, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #66b3ff;
 }

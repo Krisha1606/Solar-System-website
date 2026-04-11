@@ -1,107 +1,264 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saturn - Solar System Explorer</title>
-    <style>
-        * {
-                padding: 0%;
-                margin: 0%;
-            }
-            header{
-            background: linear-gradient(360deg, #121227, #030337);
-            margin: 0px;
-            padding: 10px;
-            color: beige;
-            }
-            body {
-            background-color: #121227;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            padding: 20px;
-            color: antiquewhite;
-        }
-
-        img {
-            display: block;
-            border-radius: 20px;
-            border-color: rgb(210, 184, 149);
-            margin: 20px auto;
-            box-shadow: wheat;
-        }
-
-        img:hover {
-            box-shadow: 0 0 6px skyblue;
-            transition: box-shadow 0.3s ease;
-        }
-        h2{
-            color: rgb(103, 138, 196);
-            padding: 10px 10px;
-        }
-        a{
-            display:inline-block;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #00acee;
-            font-weight: bold;
-            padding: 10px;
-            transition: color 0.3s ease;
-        }
-        a:hover{
-           color: #eca312;
-           text-decoration: underline;
-        }
-    </style>
+    <meta name="description" content="Explore Saturn: facts, geology, atmosphere, and mission data in an immersive NASA-style experience.">
+    <link rel="stylesheet" href="planet-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <h1 style="text-align:center;">🪐 Saturn - Solar System Explorer</h1>
-    </header>
+<!-- Mission Branding (Top Left) -->
+<div class="brand-logo-container">
+    <div class="brand-icon">
+        <i class="fa-solid fa-satellite"></i>
+    </div>
+    <div class="brand-text">
+        <div class="brand-title">COSMOS</div>
+        <div class="brand-subtitle">EXPLORER</div>
+    </div>
+</div>
 
+<!-- Navigation -->
+<nav class="saas-nav">
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="Planets.html">Planets</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="funfacts.html">Facts</a>
+    </div>
+</nav>
 
-    <div style="text-align: center;">
-        <img 
-            src="https://images.stockcake.com/public/3/a/5/3a5dc231-c4c9-4985-9926-2a5c8f75a72b_large/stunning-saturn-view-stockcake.jpg" 
-            alt="Saturn" 
-            width="750" 
-            height="450">
+<!-- ========== HERO ========== -->
+<section class="hero-section">
+
+    <!-- Left: Planet Visual (Restored 2D) -->
+    <div class="hero-planet-wrap">
+        <img src="pic/transparent_planets/saturn_transparent.png"
+             alt="Saturn" class="hero-planet-img" id="hero-img">
     </div>
 
-    <hr>
+    <!-- Right: Title & Quick Stats -->
+    <div class="hero-content">
+        <div class="hero-type-label">GAS GIANT</div>
+        <h1 class="hero-planet-name">S A T U R N</h1>
+        
+        <div class="hero-stats-bar">
+            <div class="hero-stat">
+                <div class="hero-stat-label">Radius</div>
+                <div class="hero-stat-value">58,232 km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Distance (AU)</div>
+                <div class="hero-stat-value">1.4B km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Day Length</div>
+                <div class="hero-stat-value">10.7 Hours</div>
+            </div>
+        </div>
+    </div>
 
-    <h2>Quick Facts</h2>
-    <ul>
-        <li><strong>Type:</strong> Gas Giant</li>
-        <li><strong>Diameter:</strong> 116,460 km</li>
-        <li><strong>Distance from the Sun:</strong> ~1.43 billion km</li>
-        <li><strong>Length of a Day:</strong> ~10.7 hours</li>
-        <li><strong>Orbit Period:</strong> 29.5 Earth years</li>
-        <li><strong>Moons:</strong> 146 confirmed (largest: Titan)</li>
-        <li><strong>Atmosphere:</strong> Hydrogen and helium</li>
-        <li><strong>Surface Temperature:</strong> ~ -178°C</li>
-        <li><strong>Interesting Fact:</strong> Saturn has the most spectacular and complex ring system in the solar system!</li>
-    </ul>
+    <div class="scroll-invite">
+        <span>Scroll to Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+    </div>
+</section>
 
-    <h2>About Saturn</h2>
-    <p>Saturn is the sixth planet from the Sun and the second-largest in the Solar System after Jupiter. It is a gas giant, with an average radius about 9 times that of Earth. Even though Saturn is almost as big as Jupiter, it has only about a third of Jupiter’s mass.</p>
+<!-- ========== CONTENT AREA ========== -->
+<div class="content-area">
+    <div class="scroll-layout">
+        
+        <!-- Sidebar: planet thumb + navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-planet-thumb">
+                <img src="pic/transparent_planets/saturn_transparent.png" alt="Saturn">
+            </div>
+            <div class="planet-nav">
+                <a href="jupiter.html" class="planet-nav-btn">
+                    <i class="fa-solid fa-chevron-left"></i> JUPITER
+                </a>
+                <a href="uranus.html" class="planet-nav-btn">
+                    URANUS <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="section-dots" id="section-dots">
+                <div class="section-dot active" data-sec="overview"></div>
+                <div class="section-dot" data-sec="geology"></div>
+                <div class="section-dot" data-sec="atmosphere"></div>
+                <div class="section-dot" data-sec="stats"></div>
+            </div>
+        </aside>
 
-    <p>Its interior is believed to consist of a rocky core, surrounded by layers of metallic hydrogen, liquid hydrogen, and helium, with a gaseous outer layer. Saturn appears pale yellow due to ammonia crystals in its atmosphere, and it has powerful winds reaching up to 1,800 km/h (1,100 mph).</p>
+        <!-- Main content column -->
+        <main class="main-content">
+            
+            <!-- OVERVIEW -->
+            <div class="detail-section" id="overview">
+                <div class="section-tag">01 — Overview</div>
+                <h2 class="section-heading">Celestial Summary</h2>
+                <p class="section-text">Saturn is the sixth planet from the Sun and the second largest. It is the least dense planet in the Solar System — so low in density that it would theoretically float on water.</p>
+                <p class="section-text">Saturn's breathtaking ring system makes it the most visually spectacular planet. The rings were first observed by Galileo in 1610, though he couldn't resolve them clearly and described them as 'ears'.</p>
+            </div>
 
-    <h2>Learn More</h2>
-    <p>
-        Visit the official NASA page for more Saturn facts: <br>
-        <a href="https://science.nasa.gov/saturn/facts/" target="_blank">
-            https://science.nasa.gov/saturn/facts/
+            <!-- GEOLOGY -->
+            <div class="detail-section" id="geology">
+                <div class="section-tag">02 — Geology & Structure</div>
+                <h2 class="section-heading">Internal Composition</h2>
+                <p class="section-text">Like Jupiter, Saturn is a hydrogen and helium gas giant with no true solid surface. Its core is likely rocky, surrounded by liquid metallic hydrogen, with cloud layers forming its banded appearance.</p>
+                <p class="section-text">Saturn's hexagonal north polar storm, a persistent six-sided jet stream pattern, is one of the Solar System's most bizarre structures. Each side of the hexagon is longer than Earth's diameter.</p>
+                
+                <div class="highlight-box">
+                    <div class="highlight-box-label">Did you know?</div>
+                    <p class="highlight-box-text">"Saturn has 146 known moons — the most of any planet. Its largest moon, Titan, is bigger than Mercury and has a thick nitrogen atmosphere with rivers and lakes of liquid methane on its surface."</p>
+                </div>
+            </div>
+
+            <!-- ATMOSPHERE -->
+            <div class="detail-section" id="atmosphere">
+                <div class="section-tag">03 — Atmospheric Data</div>
+                <h2 class="section-heading">Planetary Envelope</h2>
+                <p class="section-text">Saturn's atmosphere is similar to Jupiter's but its clouds are higher, thinner, and much more muted in color. Winds at the equator can reach 1,800 km/h — far faster than any wind ever recorded on Earth.</p>
+                
+                <div class="composition-bars">
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Hydrogen</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#6fc3f7;width:96%"></div>
+                        </div>
+                        <span class="comp-bar-pct">96%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Helium</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#9b8fd8;width:3%"></div>
+                        </div>
+                        <span class="comp-bar-pct">3%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Other</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#e09966;width:1%"></div>
+                        </div>
+                        <span class="comp-bar-pct">1%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA / STATS -->
+            <div class="detail-section" id="stats">
+                <div class="section-tag">04 — Data & Statistics</div>
+                <h2 class="section-heading">Planetary Data</h2>
+                
+                <div class="live-data-card glass-panel" style="margin-bottom: 30px; border-left: 3px solid #66b3ff; background: rgba(100,160,255,0.05);">
+                    <div class="section-tag" style="margin-bottom: 10px;">Live NASA Integration</div>
+                    <div class="stats-grid" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0;">
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Current Distance</div>
+                            <div class="stat-card-value" id="live-dist">Syncing...</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Orbital Speed</div>
+                            <div class="stat-card-value" id="live-speed">Syncing...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-label">Rotation</div>
+                        <div class="stat-card-value">10.7 Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Revolution</div>
+                        <div class="stat-card-value">29.5 Years</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Moons</div>
+                        <div class="stat-card-value">146</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Avg Temp</div>
+                        <div class="stat-card-value" style="font-size: 1.2rem;">−138°C (cloud tops)</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #5dd4a4; margin-top: 40px;">
+                    <div class="highlight-box-label" style="color: #5dd4a4;">Mission Briefing</div>
+                    <p class="highlight-box-text" style="font-style: normal;">NASA's Cassini spacecraft orbited Saturn from 2004 to 2017, revolutionizing our understanding of the ringed planet. It plunged into Saturn's atmosphere at the end of its mission to protect Titan and Enceladus from contamination.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Bottom navigation across planets -->
+    <nav class="page-footer-nav">
+        <a href="jupiter.html" class="footer-nav-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <div>
+                <div class="footer-nav-label">Previous</div>
+                <div class="footer-nav-name">JUPITER</div>
+            </div>
         </a>
-    </p>
+        <a href="uranus.html" class="footer-nav-btn">
+            <div style="text-align: right;">
+                <div class="footer-nav-label">Next Planet</div>
+                <div class="footer-nav-name">URANUS</div>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </nav>
+</div>
 
-    
-    <p style="text-align:center;">
-        <a href="home.html">⬅️ Back to Solar System Explorer Home</a>
-    </p>
+<!-- Core Scripts -->
+<script src="js/data-fetcher.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Live Data Sync
+        const jplIds = {
+            'mercury': '199', 'venus': '299', 'earth': '399', 'mars': '499',
+            'jupiter': '599', 'saturn': '699', 'uranus': '799', 'neptune': '899'
+        };
+        
+        async function updateLiveStats() {
+            if (!window.JPLFetcher) return;
+            const pos = await window.JPLFetcher.getPlanetPosition(jplIds['saturn']);
+            if (pos) {
+                const auToKm = 149597870.7;
+                const distKm = Math.sqrt(pos.x**2 + pos.y**2 + pos.z**2) * auToKm;
+                const distField = document.getElementById('live-dist');
+                const speedField = document.getElementById('live-speed');
+                if (distField) distField.textContent = (distKm / 1e6).toFixed(2) + ' M km';
+                // Simplified speed calculation
+                if (speedField) speedField.textContent = (29.78 / Math.sqrt(distKm/149597870.7)).toFixed(2) + ' km/s';
+            }
+        }
+        updateLiveStats();
+        setInterval(updateLiveStats, 60000);
 
-    <footer>
-        <p style="text-align:center;">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
-    </footer>
+        // 2. Scroll-triggered animations
+        const sections = document.querySelectorAll('.detail-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Update dots
+                    const id = entry.target.id;
+                    document.querySelectorAll('.section-dot').forEach(dot => {
+                        dot.classList.toggle('active', dot.getAttribute('data-sec') === id);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(s => observer.observe(s));
+    });
+</script>
 
 </body>
 </html>

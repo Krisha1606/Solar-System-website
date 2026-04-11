@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Intelligence Archives - Nebula Overhaul</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    
+    <style>
+        /* 🌌 NEBULA ARCHIVE THEME */
+        body { 
+            overflow-x: hidden; 
+            background: #02040a !important; 
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        /* 🔬 DIGITAL GRID OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(102, 179, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 179, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* 🎇 MOVING NEBULA SYSTEM */
+        .nebula-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            width: 150vw;
+            height: 150vh;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: nebulaDrift 25s infinite alternate ease-in-out;
+        }
+
+        .cloud-1 { 
+            background: radial-gradient(circle, #3b0066 0%, transparent 70%); 
+            top: -20%; left: -20%; 
+        }
+        .cloud-2 { 
+            background: radial-gradient(circle, #001a66 0%, transparent 70%); 
+            bottom: -20%; right: -20%; 
+            animation-delay: -5s;
+        }
+        .cloud-3 { 
+            background: radial-gradient(circle, #004d4d 0%, transparent 70%); 
+            top: 40%; left: 30%; 
+            animation-delay: -12s;
+        }
+
+        @keyframes nebulaDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, -10%) scale(1.1); }
+        }
+
+        /* 📐 HUD CORNER GRAPHICS */
+        .hud-corner {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(102, 179, 255, 0.3);
+            z-index: 500;
+            pointer-events: none;
+        }
+        .tl { top: 30px; left: 30px; border-right: none; border-bottom: none; }
+        .tr { top: 30px; right: 30px; border-left: none; border-bottom: none; }
+        .bl { bottom: 30px; left: 30px; border-right: none; border-top: none; }
+        .br { bottom: 30px; right: 30px; border-left: none; border-top: none; }
+
+        .hud-id {
+            position: fixed;
+            font-family: 'Orbitron';
+            font-size: 0.65rem;
+            color: rgba(102, 179, 255, 0.5);
+            letter-spacing: 2px;
+            z-index: 500;
+            pointer-events: none;
+        }
+        .id-top { top: 35px; left: 100px; }
+        .id-bottom { bottom: 35px; right: 100px; }
+
+        /* 🪐 BACKGROUND SILHOUETTES */
+        .bg-silhouette {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.08;
+            pointer-events: none;
+            filter: grayscale(1) invert(1);
+        }
+
+        /* 📋 CONTENT STYLING */
+        .hero-section {
+            padding: 120px 5% 40px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-section h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(102, 179, 255, 0.4);
+        }
+
+        .featured-fact-container {
+            width: 90%;
+            max-width: 1240px;
+            margin: 20px auto 80px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(102, 179, 255, 0.25);
+            border-radius: 30px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            backdrop-filter: blur(25px);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+        }
+
+        .featured-image {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 50px rgba(102, 179, 255, 0.4));
+        }
+
+        .archives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 92%;
+            max-width: 1500px;
+            margin: 0 auto 150px;
+        }
+
+        .sector-label {
+            font-family: 'Orbitron';
+            font-size: 0.85rem;
+            color: #66b3ff;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .sector-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(102,179,255,0.4), transparent); }
+
+        .info-card {
+            background: rgba(15, 23, 42, 0.9); /* More solid background */
+            border: 1px solid rgba(102, 179, 255, 0.3); /* Distinct border */
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.4s;
+            position: relative;
+            backdrop-filter: blur(20px); /* Stronger blur */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5); /* separation */
+        }
+
+        .info-card:hover {
+            border-color: #66b3ff;
+            background: rgba(30, 41, 59, 0.95);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        }
+
+        .info-card h4 { 
+            font-family: 'Orbitron'; 
+            font-size: 1.1rem; 
+            color: #ffffff; 
+            margin-bottom: 15px; 
+            text-shadow: 0 0 10px rgba(102, 179, 255, 0.3);
+        }
+        .info-card p { 
+            font-size: 0.95rem; 
+            color: #e2e8f0; 
+            line-height: 1.7; 
+            opacity: 1 !important;
+        }
+        .data-tag { font-size: 0.65rem; color: #66b3ff; font-weight: 800; border: 1px solid rgba(102,179,255,0.3); padding: 2px 6px; border-radius: 4px; float: right; }
+
+        @media (max-width: 1200px) {
+            .archives-grid { grid-template-columns: 1fr; }
+            .hero-section h1 { font-size: 3rem; }
+            .featured-fact-container { flex-direction: column; padding: 30px; }
+        }
+    </style>
+</head>
+<body class="dark-ui">
+
+    <!-- NEBULA FLUID BACKGROUND -->
+    <div class="nebula-layer">
+        <div class="nebula-cloud cloud-1"></div>
+        <div class="nebula-cloud cloud-2"></div>
+        <div class="nebula-cloud cloud-3"></div>
+    </div>
+
+    <!-- HUD ELEMENTS -->
+    <div class="hud-corner tl"></div>
+    <div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div>
+    <div class="hud-corner br"></div>
+
+
+    <canvas id="star-canvas" style="position:fixed; z-index:-1;"></canvas>
+
+    <!-- Planert silhouettes for depth -->
+    <img src="pic/transparent_planets/jupiter_transparent.png" class="bg-silhouette" style="width: 800px; bottom: -200px; left: -200px;">
+    <img src="pic/transparent_planets/saturn_transparent.png" class="bg-silhouette" style="width: 600px; top: -100px; right: -100px; transform: rotate(45deg);">
+
+    <!-- Mission Branding (Top Left) -->
+    <div class="brand-logo-container">
+        <div class="brand-icon">
+            <i class="fa-solid fa-satellite"></i>
+        </div>
+        <div class="brand-text">
+            <div class="brand-title">COSMOS</div>
+            <div class="brand-subtitle">EXPLORER</div>
+        </div>
+    </div>
+
+    <nav class="saas-nav">
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="Planets.html">Planets</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="funfacts.html" class="active">Fun Facts</a>
+            <a href="home.html#about">About</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <p>Informatics Archives</p>
+        <h1>Cosmic Secrets</h1>
+    </header>
+
+    <div class="featured-fact-container">
+        <img src="pic/transparent_planets/earth_transparent.png" class="featured-image" id="feat-img">
+        <div style="flex:1">
+            <div style="color:#66b3ff; font-weight:800; font-size:0.75rem; text-transform:uppercase; margin-bottom:10px;">Primary Intelligence Sector</div>
+            <h2 id="feat-title" style="font-family:'Orbitron'; font-size:2.4rem; color:#fff; margin-bottom:20px;">Establishing Link...</h2>
+            <p id="feat-desc" style="font-size:1.2rem; color:#94a3b8; line-height:1.7;">Scanning orbital archives for latest discovery markers.</p>
+        </div>
+    </div>
+
+    <main class="archives-grid">
+        <div class="archive-sector">
+            <div class="sector-label">Planetary Intelligence</div>
+            <div id="planet-facts"></div>
+        </div>
+        <div class="archive-sector">
+            <div class="sector-label">Stellar Anomalies</div>
+            <div id="stellar-facts"></div>
+        </div>
+        <div class="archive-sector">
+            <div class="sector-label">Expedition Records</div>
+            <div id="human-facts"></div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        const library = {
+            planets: [
+                { t: "Diamond Rain", d: "On Neptune, it rains diamonds due to the intense pressure and methane levels in its atmosphere.", v: "NE-01" },
+                { t: "Floating Planet", d: "Saturn is the least dense planet. It would actually float if placed in a giant bathtub.", v: "SA-02" },
+                { t: "Jupiter's Storm", d: "The Great Red Spot is a giant hurricane twice the size of Earth, active for over 300 years.", v: "JU-03" },
+                { t: "Clockwise Venus", d: "Venus is the only planet that rotates clockwise on its axis, a phenomenon called retrograde.", v: "VE-04" },
+                { t: "Mars Volcano", d: "Olympus Mons is a shield volcano on Mars that is nearly three times taller than Mount Everest.", v: "MA-05" },
+                { t: "Mercury's Ice", d: "Deep craters at Mercury's poles are permanently shadowed and hold massive deposits of water ice.", v: "ME-06" }
+            ],
+            stellar: [
+                { t: "Neutron Stars", d: "A teaspoon of a neutron star's material weighs about 6 billion tons on the surface of Earth.", v: "ST-01" },
+                { t: "Infinite Gravity", d: "Black holes are regions where gravity is so strong that even light cannot escape their grasp.", v: "BH-02" },
+                { t: "Andromeda Merge", d: "The Milky Way and Andromeda galaxies are currently on a collision course to merge in 4 billion years.", v: "GA-03" },
+                { t: "The Sun's Power", d: "Every second, the Sun converts 600 million tons of hydrogen into helium through fusion.", v: "SU-04" },
+                { t: "Voyager's Exit", d: "Voyager 1 is the first human object to enter interstellar space, beyond our solar winds.", v: "VO-05" },
+                { t: "Dark Matter", d: "95% of the universe consists of dark matter and dark energy, which are invisible to instruments.", v: "UN-06" }
+            ],
+            human: [
+                { t: "Lunar Longevity", d: "Without wind or water to erode them, Apollo astronaut footprints will stay on the Moon for millions of years.", v: "AP-11" },
+                { t: "ISS Velocity", d: "The International Space Station travels at 28,000 km/h, orbiting Earth every 90 minutes.", v: "IS-12" },
+                { t: "Space Suit Cost", d: "A full NASA space suit costs roughly $12 million, mostly for the life support backpack systems.", v: "EQ-13" },
+                { t: "No Sound", d: "Space is a vacuum. There is no medium for sound to travel, making it completely silent.", v: "VO-14" },
+                { t: "Sputnik-1", d: "The Soviet Union launched the first satellite in 1957, officially starting the space race.", v: "SP-15" },
+                { t: "Mars Rovers", d: "NASA rovers like Perseverance can generate their own oxygen using MOXIE technology.", v: "MA-16" }
+            ]
+        };
+
+        function init() {
+            // Featured
+            const all = [...library.planets, ...library.stellar, ...library.human];
+            const feat = all[new Date().getDate() % all.length];
+            document.getElementById('feat-title').textContent = feat.t;
+            document.getElementById('feat-desc').textContent = feat.d;
+
+            render('planet-facts', library.planets);
+            render('stellar-facts', library.stellar);
+            render('human-facts', library.human);
+
+            // Stars
+            const sc = document.getElementById('star-canvas');
+            const sctx = sc.getContext('2d');
+            let sw, sh, sts = [];
+            function sres() { sw = window.innerWidth; sh = window.innerHeight; sc.width = sw; sc.height = sh; }
+            window.addEventListener('resize', sres); sres();
+            for(let i=0; i<400; i++) sts.push({ x: Math.random()*sw, y: Math.random()*sh, r: Math.random()*1, a: Math.random(), s: Math.random()*0.01 });
+            function sdraw() {
+                sctx.clearRect(0,0,sw,sh);
+                sts.forEach(s => { s.a += s.s; sctx.beginPath(); sctx.arc(s.x, s.y, s.r, 0, Math.PI*2); sctx.fillStyle = `rgba(255,255,255,${0.2+Math.abs(Math.sin(s.a))*0.8})`; sctx.fill(); });
+                requestAnimationFrame(sdraw);
+            }
+            sdraw();
+        }
+
+        function render(id, data) {
+            const el = document.getElementById(id);
+            data.forEach((fact, i) => {
+                const div = document.createElement('div');
+                div.className = "info-card";
+                div.innerHTML = `<span class="data-tag">${fact.v}</span><h4>${fact.t}</h4><p>${fact.d}</p>`;
+                el.appendChild(div);
+                // Removed slow opacity animation to ensure content is visible immediately
+                gsap.from(div, { y: 10, duration: 0.4, delay: i * 0.05, ease: "power2.out" });
+            });
+        }
+
+        init();
+    </script>
+
+    <!-- 6. FOOTER SECTION -->
+    <footer class="minimalist-footer">
+        <div class="footer-content">
+            <p>Designed & Developed by <span style="color: #66b3ff; font-weight: 500;">Krisha Vaghani</span></p>
+            <div class="footer-links">
+                <a href="home.html#about">About</a>
+                <a href="Planets.html">Planets</a>
+                <a href="quiz.html">Quiz</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,108 +1,264 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jupiter - Solar System Explorer</title>
-    <style>
-        * {
-                padding: 0%;
-                margin: 0%;
-            }
-            header{
-            background: linear-gradient(360deg, #121227, #030337);
-            margin: 0px;
-            padding: 10px;
-            color: beige;
-            }
-            body {
-            background-color: #121227;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            padding: 20px;
-            color: antiquewhite;
-        }
-
-        img {
-            display: block;
-            border-radius: 20px;
-            border-color: rgb(210, 184, 149);
-            margin: 20px auto;
-            box-shadow: wheat;
-        }
-
-        img:hover {
-            box-shadow: 0 0 6px skyblue;
-            transition: box-shadow 0.3s ease;
-        }
-        h2{
-            color: rgb(103, 138, 196);
-            padding: 10px 10px;
-        }
-        a{
-            display:inline-block;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #00acee;
-            font-weight: bold;
-            padding: 10px;
-            transition: color 0.3s ease;
-        }
-        a:hover{
-           color: #eca312;
-           text-decoration: underline;
-        }
-    </style>
+    <meta name="description" content="Explore Jupiter: facts, geology, atmosphere, and mission data in an immersive NASA-style experience.">
+    <link rel="stylesheet" href="planet-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <h1 style="text-align:center;">🌟 Jupiter - Solar System Explorer</h1>
-    </header>
+<!-- Mission Branding (Top Left) -->
+<div class="brand-logo-container">
+    <div class="brand-icon">
+        <i class="fa-solid fa-satellite"></i>
+    </div>
+    <div class="brand-text">
+        <div class="brand-title">COSMOS</div>
+        <div class="brand-subtitle">EXPLORER</div>
+    </div>
+</div>
 
-    <hr>
+<!-- Navigation -->
+<nav class="saas-nav">
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="Planets.html">Planets</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="funfacts.html">Facts</a>
+    </div>
+</nav>
 
-    <div style="text-align: center;">
-        <img 
-            src="https://c02.purpledshub.com/uploads/sites/48/2020/10/Hubble-Jupiter-Europa-56cc9b3.jpg?w=1410&webp=1" 
-            alt="Jupiter" 
-            width="700" 
-            height="480">
+<!-- ========== HERO ========== -->
+<section class="hero-section">
+
+    <!-- Left: Planet Visual (Restored 2D) -->
+    <div class="hero-planet-wrap">
+        <img src="pic/transparent_planets/jupiter_transparent.png"
+             alt="Jupiter" class="hero-planet-img" id="hero-img">
     </div>
 
-    <h2> Quick Facts</h2>
-    <ul>
-        <li><strong>Type:</strong> Gas Giant</li>
-        <li><strong>Diameter:</strong> 139,820 km</li>
-        <li><strong>Distance from the Sun:</strong> ~778.5 million km</li>
-        <li><strong>Length of a Day:</strong> ~10 hours (shortest day)</li>
-        <li><strong>Orbit Period:</strong> 11.9 Earth years</li>
-        <li><strong>Moons:</strong> 95 confirmed (largest: Ganymede)</li>
-        <li><strong>Atmosphere:</strong> Hydrogen and helium</li>
-        <li><strong>Surface Temperature:</strong> ~ -145°C</li>
-        <li><strong>Interesting Fact:</strong> Jupiter has a giant storm called the Great Red Spot that’s larger than Earth!</li>
-    </ul>
+    <!-- Right: Title & Quick Stats -->
+    <div class="hero-content">
+        <div class="hero-type-label">GAS GIANT</div>
+        <h1 class="hero-planet-name">J U P I T E R</h1>
+        
+        <div class="hero-stats-bar">
+            <div class="hero-stat">
+                <div class="hero-stat-label">Radius</div>
+                <div class="hero-stat-value">69,911 km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Distance (AU)</div>
+                <div class="hero-stat-value">778M km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Day Length</div>
+                <div class="hero-stat-value">10 Hours</div>
+            </div>
+        </div>
+    </div>
 
-    <h2>About Jupiter</h2>
-    <p>Jupiter is the fifth planet from the Sun and the largest in the Solar System. It has a mass more than 2.5 times that of all other planets combined, yet just a fraction of the Sun’s mass. Its diameter is 11 times that of Earth.</p>
+    <div class="scroll-invite">
+        <span>Scroll to Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+    </div>
+</section>
 
-    <p>It has been known since ancient times and is the third-brightest object in the night sky after the Moon and Venus. Jupiter likely formed early in the solar system and influenced the positions of other planets.</p>
+<!-- ========== CONTENT AREA ========== -->
+<div class="content-area">
+    <div class="scroll-layout">
+        
+        <!-- Sidebar: planet thumb + navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-planet-thumb">
+                <img src="pic/transparent_planets/jupiter_transparent.png" alt="Jupiter">
+            </div>
+            <div class="planet-nav">
+                <a href="mars.html" class="planet-nav-btn">
+                    <i class="fa-solid fa-chevron-left"></i> MARS
+                </a>
+                <a href="saturn.html" class="planet-nav-btn">
+                    SATURN <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="section-dots" id="section-dots">
+                <div class="section-dot active" data-sec="overview"></div>
+                <div class="section-dot" data-sec="geology"></div>
+                <div class="section-dot" data-sec="atmosphere"></div>
+                <div class="section-dot" data-sec="stats"></div>
+            </div>
+        </aside>
 
-    <p>Its atmosphere is mainly hydrogen and helium, with elements like carbon, sulfur, water vapor, and ammonia. The famous Great Red Spot is a massive storm that’s been raging for centuries.</p>
+        <!-- Main content column -->
+        <main class="main-content">
+            
+            <!-- OVERVIEW -->
+            <div class="detail-section" id="overview">
+                <div class="section-tag">01 — Overview</div>
+                <h2 class="section-heading">Celestial Summary</h2>
+                <p class="section-text">Jupiter is the fifth planet from the Sun and by far the largest in the Solar System — more than twice as massive as all the other planets combined. It is a gas giant with no solid surface.</p>
+                <p class="section-text">Jupiter's immense gravity has profoundly shaped the Solar System. It acts as a giant 'vacuum cleaner,' attracting and absorbing comets and asteroids that might otherwise strike the inner planets.</p>
+            </div>
 
-    <h2>Learn More</h2>
-    <p>
-        <a href="https://science.nasa.gov/jupiter/jupiter-facts/" target="_blank">
-            https://science.nasa.gov/jupiter/jupiter-facts/
+            <!-- GEOLOGY -->
+            <div class="detail-section" id="geology">
+                <div class="section-tag">02 — Geology & Structure</div>
+                <h2 class="section-heading">Internal Composition</h2>
+                <p class="section-text">Jupiter has no solid surface. Moving inward, gas becomes liquid, and deeper still, hydrogen is compressed into a metallic liquid state that conducts electricity, generating Jupiter's powerful magnetic field.</p>
+                <p class="section-text">The Great Red Spot — an iconic, persistent high-pressure storm larger than Earth — has been observed for over 350 years. Recent data shows it is slowly shrinking but remains one of the most powerful storms in the Solar System.</p>
+                
+                <div class="highlight-box">
+                    <div class="highlight-box-label">Did you know?</div>
+                    <p class="highlight-box-text">"Jupiter has 95 known moons — more than any other planet. Four of them (Io, Europa, Ganymede, and Callisto) were discovered by Galileo in 1610 and are large enough to be seen with binoculars."</p>
+                </div>
+            </div>
+
+            <!-- ATMOSPHERE -->
+            <div class="detail-section" id="atmosphere">
+                <div class="section-tag">03 — Atmospheric Data</div>
+                <h2 class="section-heading">Planetary Envelope</h2>
+                <p class="section-text">Jupiter's atmosphere is made up predominantly of hydrogen and helium. The visible cloud bands are driven by fierce jet streams. The vivid colors come from compounds like ammonia ice, sulfur, and phosphine.</p>
+                
+                <div class="composition-bars">
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Hydrogen</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#6fc3f7;width:89%"></div>
+                        </div>
+                        <span class="comp-bar-pct">89%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Helium</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#9b8fd8;width:10%"></div>
+                        </div>
+                        <span class="comp-bar-pct">10%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Methane + Other</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#5dd4a4;width:1%"></div>
+                        </div>
+                        <span class="comp-bar-pct">1%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA / STATS -->
+            <div class="detail-section" id="stats">
+                <div class="section-tag">04 — Data & Statistics</div>
+                <h2 class="section-heading">Planetary Data</h2>
+                
+                <div class="live-data-card glass-panel" style="margin-bottom: 30px; border-left: 3px solid #66b3ff; background: rgba(100,160,255,0.05);">
+                    <div class="section-tag" style="margin-bottom: 10px;">Live NASA Integration</div>
+                    <div class="stats-grid" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0;">
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Current Distance</div>
+                            <div class="stat-card-value" id="live-dist">Syncing...</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Orbital Speed</div>
+                            <div class="stat-card-value" id="live-speed">Syncing...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-label">Rotation</div>
+                        <div class="stat-card-value">10 Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Revolution</div>
+                        <div class="stat-card-value">11.9 Years</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Moons</div>
+                        <div class="stat-card-value">95</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Avg Temp</div>
+                        <div class="stat-card-value" style="font-size: 1.2rem;">−108°C (cloud tops)</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #5dd4a4; margin-top: 40px;">
+                    <div class="highlight-box-label" style="color: #5dd4a4;">Mission Briefing</div>
+                    <p class="highlight-box-text" style="font-style: normal;">NASA's Juno spacecraft has been orbiting Jupiter since 2016, studying its deep atmosphere, magnetic field, and auroras. The Europa Clipper mission, launching in 2024, will explore Europa's potentially habitable ocean.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Bottom navigation across planets -->
+    <nav class="page-footer-nav">
+        <a href="mars.html" class="footer-nav-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <div>
+                <div class="footer-nav-label">Previous</div>
+                <div class="footer-nav-name">MARS</div>
+            </div>
         </a>
-    </p>
+        <a href="saturn.html" class="footer-nav-btn">
+            <div style="text-align: right;">
+                <div class="footer-nav-label">Next Planet</div>
+                <div class="footer-nav-name">SATURN</div>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </nav>
+</div>
 
-    <hr>
+<!-- Core Scripts -->
+<script src="js/data-fetcher.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Live Data Sync
+        const jplIds = {
+            'mercury': '199', 'venus': '299', 'earth': '399', 'mars': '499',
+            'jupiter': '599', 'saturn': '699', 'uranus': '799', 'neptune': '899'
+        };
+        
+        async function updateLiveStats() {
+            if (!window.JPLFetcher) return;
+            const pos = await window.JPLFetcher.getPlanetPosition(jplIds['jupiter']);
+            if (pos) {
+                const auToKm = 149597870.7;
+                const distKm = Math.sqrt(pos.x**2 + pos.y**2 + pos.z**2) * auToKm;
+                const distField = document.getElementById('live-dist');
+                const speedField = document.getElementById('live-speed');
+                if (distField) distField.textContent = (distKm / 1e6).toFixed(2) + ' M km';
+                // Simplified speed calculation
+                if (speedField) speedField.textContent = (29.78 / Math.sqrt(distKm/149597870.7)).toFixed(2) + ' km/s';
+            }
+        }
+        updateLiveStats();
+        setInterval(updateLiveStats, 60000);
 
-    <p style="text-align:center;">
-        <a href="home.html">⬅️ Back to Solar System Explorer Home</a>
-    </p>
+        // 2. Scroll-triggered animations
+        const sections = document.querySelectorAll('.detail-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Update dots
+                    const id = entry.target.id;
+                    document.querySelectorAll('.section-dot').forEach(dot => {
+                        dot.classList.toggle('active', dot.getAttribute('data-sec') === id);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
 
-    <footer>
-        <p style="text-align:center;">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
-    </footer>
+        sections.forEach(s => observer.observe(s));
+    });
+</script>
 
 </body>
 </html>

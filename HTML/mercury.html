@@ -1,113 +1,271 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercury - Solar System Explorer</title>
-    <style>
-        * {
-            padding: 0%;
-            margin: 0%;
-        }
-
-        header {
-            background: linear-gradient(360deg, #121227, #030337);
-            margin: 0px;
-            padding: 10px;
-            color: beige;
-        }
-
-        body {
-            background-color: #121227;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            padding: 20px;
-            color: antiquewhite;
-        }
-
-        img {
-            display: block;
-            border-radius: 20px;
-            border-color: rgb(210, 184, 149);
-            margin: 20px auto;
-            box-shadow: wheat;
-        }
-
-        img:hover {
-            box-shadow: 0 0 6px skyblue;
-            transition: box-shadow 0.3s ease;
-        }
-        h2{
-            color: rgb(103, 138, 196);
-            padding: 10px 10px;
-        }
-        a{
-            display:inline-block;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #00acee;
-            font-weight: bold;
-            padding: 10px;
-            transition: color 0.3s ease;
-        }
-        a:hover{
-           color: #eca312;
-           text-decoration: underline;
-        }
-    </style>
+    <meta name="description" content="Explore Mercury: facts, geology, atmosphere, and mission data in an immersive NASA-style experience.">
+    <link rel="stylesheet" href="planet-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
-    <header>
-        <h1 style="text-align:center;">☿ Mercury - Solar System Explorer</h1>
-    </header>
+<!-- Mission Branding (Top Left) -->
+<div class="brand-logo-container">
+    <div class="brand-icon">
+        <i class="fa-solid fa-satellite"></i>
+    </div>
+    <div class="brand-text">
+        <div class="brand-title">COSMOS</div>
+        <div class="brand-subtitle">EXPLORER</div>
+    </div>
+</div>
 
-    <hr>
-    <div style="text-align: center;">
-        <img src="https://www.starscapes.zone/wp-content/uploads/2024/07/mercury-space-3d-illustration.jpg"
-            alt="The Sun - NASA Image" height="400px" width="600px">
+<!-- Navigation -->
+<nav class="saas-nav">
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="Planets.html">Planets</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="funfacts.html">Facts</a>
+    </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero-section">
+
+    <!-- Left: Planet Visual (Restored 2D) -->
+    <div class="hero-planet-wrap">
+        <img src="pic/transparent_planets/mercury_transparent.png"
+             alt="Mercury" class="hero-planet-img" id="hero-img">
     </div>
 
+    <!-- Right: Title & Quick Stats -->
+    <div class="hero-content">
+        <div class="hero-type-label">TERRESTRIAL PLANET</div>
+        <h1 class="hero-planet-name">M E R C U R Y</h1>
+        
+        <div class="hero-stats-bar">
+            <div class="hero-stat">
+                <div class="hero-stat-label">Radius</div>
+                <div class="hero-stat-value">2,439 km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Distance (AU)</div>
+                <div class="hero-stat-value">57.9M km</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-label">Day Length</div>
+                <div class="hero-stat-value">59 Earth Days</div>
+            </div>
+        </div>
+    </div>
 
-    <h2>Quick Facts</h2>
-    <ul>
-        <li><strong>Type:</strong> Rocky Planet</li>
-        <li><strong>Diameter:</strong> 4,880 km</li>
-        <li><strong>Distance from the Sun:</strong> ~57.9 million km</li>
-        <li><strong>Length of a Day:</strong> 59 Earth days</li>
-        <li><strong>Orbit Period:</strong> 88 Earth days</li>
-        <li><strong>Moons:</strong> 0</li>
-        <li><strong>Surface Temperature:</strong> -180°C (night) to 430°C (day)</li>
-        <li><strong>Atmosphere:</strong> Very thin (mainly oxygen, sodium, hydrogen)</li>
-        <li><strong>Interesting Fact:</strong> Mercury has the most craters in the solar system!</li>
-    </ul>
-    <br>
-    <h2>About Mercury</h2>
-    <p>Mercury's sidereal year (88 Earth days) and sidereal day (58.65 Earth days) are in a 3:2 ratio. This relationship
-        is called spin–orbit resonance. One solar day on Mercury (sunrise to sunrise) lasts about 176 Earth days. That
-        means one side of Mercury can stay in sunlight or darkness for a full Mercury year. Its surface experiences
-        extreme temperatures, from −170°C at night to 420°C during the day.</p>
-    <p>Despite being the smallest planet, Mercury's gravity is similar to Mars. Its surface is heavily cratered like
-        Earth's Moon, and it features giant fault scarps called rupes. The largest crater, Caloris Planitia, is 1,550 km
-        wide—one-third the planet’s size! Its poles may contain water ice in permanently shadowed craters. Mercury is
-        always close to the Sun in Earth’s sky, visible at dawn or dusk as a “morning star” or “evening star.”</p>
-    <br>
-    <h2>Learn More</h2>
-    <p>
-        <a href="https://science.nasa.gov/mercury/facts/" target="_blank">
-            https://science.nasa.gov/mercury/facts/
+    <div class="scroll-invite">
+        <span>Scroll to Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+    </div>
+</section>
+
+<!-- ========== CONTENT AREA ========== -->
+<div class="content-area">
+    <div class="scroll-layout">
+        
+        <!-- Sidebar: planet thumb + navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-planet-thumb">
+                <img src="pic/transparent_planets/mercury_transparent.png" alt="Mercury">
+            </div>
+            <div class="planet-nav">
+                <a href="neptune.html" class="planet-nav-btn">
+                    <i class="fa-solid fa-chevron-left"></i> NEPTUNE
+                </a>
+                <a href="venus.html" class="planet-nav-btn">
+                    VENUS <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="section-dots" id="section-dots">
+                <div class="section-dot active" data-sec="overview"></div>
+                <div class="section-dot" data-sec="geology"></div>
+                <div class="section-dot" data-sec="atmosphere"></div>
+                <div class="section-dot" data-sec="stats"></div>
+            </div>
+        </aside>
+
+        <!-- Main content column -->
+        <main class="main-content">
+            
+            <!-- OVERVIEW -->
+            <div class="detail-section" id="overview">
+                <div class="section-tag">01 — Overview</div>
+                <h2 class="section-heading">Celestial Summary</h2>
+                <p class="section-text">Mercury is the smallest and innermost planet in the Solar System. Its orbit around the Sun takes only 87.97 Earth days, making it the fastest planet in the Solar System.</p>
+                <p class="section-text">Despite being closest to the Sun, Mercury is not the hottest planet — that title belongs to Venus. Mercury lacks a meaningful atmosphere to retain heat, causing extreme temperature swings.</p>
+            </div>
+
+            <!-- GEOLOGY -->
+            <div class="detail-section" id="geology">
+                <div class="section-tag">02 — Geology & Structure</div>
+                <h2 class="section-heading">Internal Composition</h2>
+                <p class="section-text">Mercury's surface is heavily cratered and remarkably similar in appearance to Earth's Moon. Ancient volcanic activity shaped vast, smooth plains called 'planitia' that stretch across the planet.</p>
+                <p class="section-text">The planet has one of the largest cores relative to its size in the Solar System — its iron core accounts for about 85% of its radius, suggesting it lost much of its outer layers early in solar system history.</p>
+                
+                <div class="highlight-box">
+                    <div class="highlight-box-label">Did you know?</div>
+                    <p class="highlight-box-text">"If you could stand on Mercury's surface, the Sun would appear about three times larger in the sky than it does from Earth. The sunrise would be brief and intensely hot."</p>
+                </div>
+            </div>
+
+            <!-- ATMOSPHERE -->
+            <div class="detail-section" id="atmosphere">
+                <div class="section-tag">03 — Atmospheric Data</div>
+                <h2 class="section-heading">Planetary Envelope</h2>
+                <p class="section-text">Instead of a true atmosphere, Mercury has an extremely thin exosphere composed of atoms blasted off its surface by solar wind, meteoroid strikes, and radioactive decay. It provides no thermal insulation whatsoever.</p>
+                
+                <div class="composition-bars">
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Oxygen</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#6fc3f7;width:42%"></div>
+                        </div>
+                        <span class="comp-bar-pct">42%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Sodium</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#9b8fd8;width:29%"></div>
+                        </div>
+                        <span class="comp-bar-pct">29%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Hydrogen</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#5dd4a4;width:22%"></div>
+                        </div>
+                        <span class="comp-bar-pct">22%</span>
+                    </div>
+                    <div class="comp-bar-row">
+                        <span class="comp-bar-label">Other</span>
+                        <div class="comp-bar-track">
+                            <div class="comp-bar-fill" style="background:#e09966;width:7%"></div>
+                        </div>
+                        <span class="comp-bar-pct">7%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA / STATS -->
+            <div class="detail-section" id="stats">
+                <div class="section-tag">04 — Data & Statistics</div>
+                <h2 class="section-heading">Planetary Data</h2>
+                
+                <div class="live-data-card glass-panel" style="margin-bottom: 30px; border-left: 3px solid #66b3ff; background: rgba(100,160,255,0.05);">
+                    <div class="section-tag" style="margin-bottom: 10px;">Live NASA Integration</div>
+                    <div class="stats-grid" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0;">
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Current Distance</div>
+                            <div class="stat-card-value" id="live-dist">Syncing...</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-card-label">Orbital Speed</div>
+                            <div class="stat-card-value" id="live-speed">Syncing...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-label">Rotation</div>
+                        <div class="stat-card-value">59 Earth Days</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Revolution</div>
+                        <div class="stat-card-value">88 Days</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Moons</div>
+                        <div class="stat-card-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-label">Avg Temp</div>
+                        <div class="stat-card-value" style="font-size: 1.2rem;">−173 to 427°C</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #5dd4a4; margin-top: 40px;">
+                    <div class="highlight-box-label" style="color: #5dd4a4;">Mission Briefing</div>
+                    <p class="highlight-box-text" style="font-style: normal;">NASA's MESSENGER spacecraft was the first to orbit Mercury (2011–2015), providing detailed maps of its surface. ESA's BepiColombo mission, launched in 2018, will arrive in 2025 for a deeper study.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Bottom navigation across planets -->
+    <nav class="page-footer-nav">
+        <a href="neptune.html" class="footer-nav-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <div>
+                <div class="footer-nav-label">Previous</div>
+                <div class="footer-nav-name">NEPTUNE</div>
+            </div>
         </a>
-    </p>
-    <br>
-    <hr>
+        <a href="venus.html" class="footer-nav-btn">
+            <div style="text-align: right;">
+                <div class="footer-nav-label">Next Planet</div>
+                <div class="footer-nav-name">VENUS</div>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </nav>
+</div>
 
-    <p style="text-align:center;">
-        <a href="home.html">⬅️ Back to Solar System Explorer Home</a>
-    </p>
+<!-- Core Scripts -->
+<script src="js/data-fetcher.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Live Data Sync
+        const jplIds = {
+            'mercury': '199', 'venus': '299', 'earth': '399', 'mars': '499',
+            'jupiter': '599', 'saturn': '699', 'uranus': '799', 'neptune': '899'
+        };
+        
+        async function updateLiveStats() {
+            if (!window.JPLFetcher) return;
+            const pos = await window.JPLFetcher.getPlanetPosition(jplIds['mercury']);
+            if (pos) {
+                const auToKm = 149597870.7;
+                const distKm = Math.sqrt(pos.x**2 + pos.y**2 + pos.z**2) * auToKm;
+                const distField = document.getElementById('live-dist');
+                const speedField = document.getElementById('live-speed');
+                if (distField) distField.textContent = (distKm / 1e6).toFixed(2) + ' M km';
+                // Simplified speed calculation
+                if (speedField) speedField.textContent = (29.78 / Math.sqrt(distKm/149597870.7)).toFixed(2) + ' km/s';
+            }
+        }
+        updateLiveStats();
+        setInterval(updateLiveStats, 60000);
 
-    <footer>
-        <p style="text-align:center;">© 2025 Solar System Explorer | Images from NASA | Created by Krisha</p>
-    </footer>
+        // 2. Scroll-triggered animations
+        const sections = document.querySelectorAll('.detail-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Update dots
+                    const id = entry.target.id;
+                    document.querySelectorAll('.section-dot').forEach(dot => {
+                        dot.classList.toggle('active', dot.getAttribute('data-sec') === id);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(s => observer.observe(s));
+    });
+</script>
 
 </body>
-
 </html>
