@@ -6,6 +6,13 @@ Instead of just reading a textbook, this site lets you fly around planets, see a
 
 ---
 
+## 🔗 Live Demo
+
+Check out the site live on Vercel:
+**[Cosmos Explorer Live](https://solar-system-website-je7dtkcoc-krisha1606s-projects.vercel.app/)**
+
+---
+
 ## 🚀 What It Does
 
 - **3D Solar System Visualization:** Renders the solar system using WebGL so you can pan, zoom, and look around.
