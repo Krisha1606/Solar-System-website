@@ -144,8 +144,6 @@ body::before {
     position: relative;
     z-index: 50;
     padding: 30px 10%;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
     background: rgba(10, 15, 25, 0.4);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -352,7 +350,7 @@ body::before {
         rgba(4,6,15,0.98) 5%,
         rgba(4,6,15,1) 100%
     );
-    padding: 0 0 80px 0;
+    padding: 0;
 }
 
 /* Decorative top-fade for content area */
