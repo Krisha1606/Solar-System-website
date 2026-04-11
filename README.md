@@ -8,7 +8,7 @@ This is **Cosmos Explorer**, a 3D solar system experience built using WebGL and 
 
 ## 🔗 Check it out live
 
-🚀 **Live Site:** [Explore the Solar System here](https://solar-system-website-je7dtkcoc-krisha1606s-projects.vercel.app?_vercel_share=3CxRp4fgpnnm9GqwFPxxBTN93Redy7mH)
+🚀 **Live Site:** [Explore the Solar System here](https://solar-system-website-6blm3crna-krisha1606s-projects.vercel.app?_vercel_share=iGBADQNlrluMDW1p7Lj3QaPRo5b3ruob)
 
 ---
 
