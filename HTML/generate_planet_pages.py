@@ -333,18 +333,6 @@ HTML_TEMPLATE = '''\
 </main>
     </div>
 
-    <!-- 6. FOOTER SECTION -->
-    <footer class="minimalist-footer">
-        <div class="footer-content">
-            <p>Designed & Developed by <span style="color: #66b3ff; font-weight: 500;">Krisha Vaghani</span></p>
-            <div class="footer-links">
-                <a href="home.html#about">About</a>
-                <a href="Planets.html">Planets</a>
-                <a href="quiz.html">Quiz</a>
-            </div>
-        </div>
-    </footer>
-
     <!-- Bottom navigation across planets -->
     <nav class="page-footer-nav">
         <a href="{prev_id}.html" class="footer-nav-btn">
