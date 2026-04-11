@@ -187,7 +187,7 @@ HTML_TEMPLATE = '''\
         <a href="planets.html">Planets</a>
         <a href="orbit.html">Orbit</a>
         <a href="quiz.html">Quiz</a>
-        <a href="funfacts.html">Facts</a>
+        <a href="funfacts.html">Fun Facts</a>
     </div>
 </nav>
 
