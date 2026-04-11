@@ -185,6 +185,7 @@ HTML_TEMPLATE = '''\
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="planets.html">Planets</a>
+        <a href="orbit.html">Orbit</a>
         <a href="quiz.html">Quiz</a>
         <a href="funfacts.html">Facts</a>
     </div>
