@@ -41,7 +41,7 @@ Here's a quick look at where everything lives:
 📦 Solar-System-website
  ┣ 📂 HTML
  ┃ ┣ 📂 js                        # Logic (Three.js space engine, API fetching)
- ┃ ┣ 📂 pic                       # All the images and transparent planets
+ ┃ ┣ 📂 pic                       # All the images of planets
  ┃ ┣ 📜 home.html                 # The main landing page
  ┃ ┣ 📜 home.css                  # Master CSS file holding the design system
  ┃ ┣ 📜 orbit.html                # The 3D orbit simulator
@@ -50,7 +50,7 @@ Here's a quick look at where everything lives:
  ┃ ┣ 📜 funfacts.html             # The cosmic facts archive
  ┃ ┣ 📜 generate_planet_pages.py  # Python generator for planet pages
  ┃ ┣ 📜 register.php & signup.html# User signup system
- ┃ ┗ 📜 [planet].html             # The auto-generated files (earth.html, mars.html, etc.)
+ ┃ ┗ 📜 [planet].html             # (earth.html, mars.html, etc.)
  ┗ 📜 README.md
 ```
 
