@@ -183,8 +183,8 @@ HTML_TEMPLATE = '''\
 <!-- Navigation -->
 <nav class="saas-nav">
     <div class="nav-links">
-        <a href="home.html">Home</a>
-        <a href="Planets.html">Planets</a>
+        <a href="index.html">Home</a>
+        <a href="planets.html">Planets</a>
         <a href="quiz.html">Quiz</a>
         <a href="funfacts.html">Facts</a>
     </div>
@@ -356,8 +356,8 @@ HTML_TEMPLATE = '''\
         <div class="footer-content">
             <p>Designed & Developed by <span style="color: #66b3ff; font-weight: 500;">Krisha Vaghani</span></p>
             <div class="footer-links">
-                <a href="home.html#about">About</a>
-                <a href="Planets.html">Planets</a>
+                <a href="index.html#about">About</a>
+                <a href="planets.html">Planets</a>
                 <a href="quiz.html">Quiz</a>
             </div>
         </div>
@@ -432,7 +432,7 @@ def build_comp_bars(bars):
     return '\n'.join(lines)
 
 
-out_dir = r"d:\Solar-System-website\HTML"
+out_dir = "."
 
 for p in planets:
     title_name = p['id'].capitalize()
@@ -466,3 +466,4 @@ for p in planets:
     print(f"[OK] {path}")
 
 print("\n[DONE] All 8 planet detail pages regenerated successfully.")
+

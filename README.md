@@ -39,18 +39,17 @@ Here's a quick look at where everything lives:
 
 ```text
 📦 Solar-System-website
- ┣ 📂 HTML
- ┃ ┣ 📂 js                        # Logic (Three.js space engine, API fetching)
- ┃ ┣ 📂 pic                       # All the images of planets
- ┃ ┣ 📜 home.html                 # The main landing page
- ┃ ┣ 📜 home.css                  # Master CSS file holding the design system
- ┃ ┣ 📜 orbit.html                # The 3D orbit simulator
- ┃ ┣ 📜 Planets.html              # The 2D planet carousel dashboard
- ┃ ┣ 📜 quiz.html                 # The trivia system
- ┃ ┣ 📜 funfacts.html             # The cosmic facts archive
- ┃ ┣ 📜 generate_planet_pages.py  # Python generator for planet pages
-
- ┃ ┗ 📜 [planet].html             # (earth.html, mars.html, etc.)
+ ┣ 📂 js                        # Logic (Three.js space engine, API fetching)
+ ┣ 📂 pic                       # All the images of planets
+ ┣ 📂 space photos              # Additional planetary assets
+ ┣ 📜 index.html                # Main entry point (formerly home.html)
+ ┣ 📜 style.css                 # Master design system (formerly home.css)
+ ┣ 📜 planets.html              # 2D planet carousel dashboard
+ ┣ 📜 orbit.html                # 3D orbit simulator
+ ┣ 📜 quiz.html                 # Trivia system
+ ┣ 📜 funfacts.html             # Cosmic facts archive
+ ┣ 📜 generate_planet_pages.py  # Python generator for planet pages
+ ┣ 📜 [planet].html             # Auto-generated planet pages
  ┗ 📜 README.md
 ```
 
@@ -63,7 +62,7 @@ Because it uses JavaScript modules and local file fetching, you'll need to run i
 1. **Clone the repo:**
    ```bash
    git clone <your-repository-url>
-   cd Solar-System-website/HTML
+   cd Solar-System-website
    ```
 2. **Start a local server:**
    If you have Python installed, just run:
@@ -71,7 +70,7 @@ Because it uses JavaScript modules and local file fetching, you'll need to run i
    python -m http.server 8080
    ```
 3. **Check it out:** 
-   Open your browser and head to `http://localhost:8080/home.html`.
+   Open your browser and head to `http://localhost:8080/index.html`.
 4. **Generating Planet Pages:** 
    If you want to edit the planet info, just edit the data block cleanly inside `generate_planet_pages.py` and run it with `python generate_planet_pages.py`. It'll automatically rebuild all 8 planet pages for you instantly.
 
