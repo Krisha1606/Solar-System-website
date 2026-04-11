@@ -15,7 +15,7 @@ Instead of just reading a textbook, this site lets you fly around planets, see a
 - **Live Data:** Hooked up to simulate fetching live data (like distances and speeds) from JPL/NASA.
 - **Space Quiz:** Tests your knowledge with a GSAP-animated quiz system.
 - **Fun Facts Feed:** A scrolling feed of cool astronomy and space exploration facts.
-- **User Signups:** A simple PHP backend that allows users to register.
+
 
 ---
 
@@ -29,7 +29,7 @@ I wanted to keep the stack simple but powerful enough to handle 3D and heavy UI 
 - **Animations:** `GSAP` to make the UI feel smooth and alive.
 - **Backend / Generators:**
   - **Python:** Used a python script (`generate_planet_pages.py`) to auto-build all the planet detail pages instead of typing them out manually.
-  - **PHP:** Handles the user registration backend securely.
+
 
 ---
 
@@ -49,7 +49,7 @@ Here's a quick look at where everything lives:
  ┃ ┣ 📜 quiz.html                 # The trivia system
  ┃ ┣ 📜 funfacts.html             # The cosmic facts archive
  ┃ ┣ 📜 generate_planet_pages.py  # Python generator for planet pages
- ┃ ┣ 📜 register.php & signup.html# User signup system
+
  ┃ ┗ 📜 [planet].html             # (earth.html, mars.html, etc.)
  ┗ 📜 README.md
 ```
