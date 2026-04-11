@@ -14,12 +14,13 @@ This is **Cosmos Explorer**, a 3D solar system experience built using WebGL and 
 
 ## ✨ Features
 
-* **3D Solar System:** I used **Three.js** to render a real-time starfield and planetary lineup. You can zoom in and pan around to get a feel for the scale.
-* **Orbits & Time Control:** You can speed up time to watch how the planets move around the sun. It’s a great way to see the different orbital speeds in action.
+* **3D Solar System Explorer:** A fully restored **Three.js** engine that renders a real-time starfield and planetary lineup. You can zoom in, pan around, and watch the planets follow their orbital paths.
+* **Universal Navigation:** A standardized, premium header across all pages for a seamless browsing experience.
+* **Orbits & Time Control:** Real-world physics-based time progression. Speed up time to watch how the planets move around the sun in high-speed or real-time.
 * **Planet Dashboard:** A clean, easy-to-use UI to switch between planets and see their stats (radius, distance, day length, etc.).
-* **Auto-Generated Data Pages:** Instead of hand-coding every single planet page, I wrote a **Python script** that auto-generates them using a template. It fills in all the facts, geology, and atmosphere data for me.
-* **Live NASA-Inspired Data:** Displays dynamic stats like current distances and speeds, simulating the kind of data you'd see from JPL.
-* **Interactive Quiz & Fun Facts:** A little something extra—test your knowledge with a quiz or just browse through the random cosmic facts feed.
+* **Auto-Generated Data Pages:** Powered by a **Python script** that auto-generates high-impact data pages for all eight planets using a NASA-inspired template.
+* **NASA JPL Integration:** Displays live planetary positions synchronized with NASA's JPL Horizons system.
+* **Interactive Quiz & Fun Facts:** Test your cosmic knowledge with an interactive quiz or explore a curated feed of space facts.
 
 ---
 
@@ -29,7 +30,7 @@ I wanted to keep the tech stack lightweight but powerful enough to handle 3D ren
 
 * **Core:** HTML5, Vanilla JavaScript, and CSS3.
 * **Graphics:** **Three.js** for the WebGL space engine.
-* **Motion:** **GSAP** for the UI transitions and animations.
+* **Motion:** **GSAP** for UI transitions and cinematic animations.
 * **Automation:** **Python** for building the individual planet pages.
 * **Deployment:** Vercel.
 
@@ -39,17 +40,17 @@ I wanted to keep the tech stack lightweight but powerful enough to handle 3D ren
 
 ```text
 📦 Solar-System-website
- ┣ 📂 js                        # 3D engine & data logic
- ┣ 📂 pic                       # Planet textures & visuals
- ┣ 📂 space photos              # Extra branding assets
- ┣ 📜 index.html                # Main landing page
- ┣ 📜 style.css                 # Master design system
+ ┣ 📂 js                        # 3D engine, NASA JPL sync & data logic
+ ┣ 📂 pic                       # 8K Planet textures & branding visuals
+ ┣ 📂 space photos              # Extra environmental assets
+ ┣ 📜 index.html                # Immersive landing page
+ ┣ 📜 style.css                 # Master design system & tokens
  ┣ 📜 planets.html              # Planet carousel dashboard
- ┣ 📜 orbit.html                # The 3D simulator
- ┣ 📜 quiz.html                 # Trivia system
+ ┣ 📜 orbit.html                # Full-screen 3D simulator
+ ┣ 📜 quiz.html                 # Interactive trivia system
  ┣ 📜 funfacts.html             # Cosmic facts feed
- ┣ 📜 generate_planet_pages.py  # My page generator script
- ┣ 📜 [planet].html             # The generated planet pages
+ ┣ 📜 generate_planet_pages.py  # Python template generator
+ ┣ 📜 [planet].html             # Dynamic planet detail pages
  ┗ 📜 README.md
 ```
 
@@ -69,14 +70,14 @@ Since this project uses JavaScript modules and local file fetching, you'll need 
 ## 🚀 What’s Next?
 
 I’m still working on this! A few things I want to add in the future:
-* Hooking it up to a real NASA API for 100% accurate live data.
 * Adding the moons and asteroid belts.
-* Making it feel smoother on mobile phones.
+* Interactive 3D surface landings for select planets.
+* Enhanced mobile-optimized controls.
 
 ---
 
 ## 💡 What I learned
 
-Building this was a huge learning curve for me. It was my first time really diving into **Three.js** and managing complex UI layers on top of a 3D canvas. It taught me a lot about project structure and how to automate repetitive tasks with Python.
+Building this was a huge learning curve for me. It was my first time really diving into **Three.js** and managing complex UI layers on top of a 3D canvas. It taught me a lot about project structure, WebGL optimization, and how to automate repetitive tasks with Python.
 
 **Built with 🚀 by Krisha Vaghani**
