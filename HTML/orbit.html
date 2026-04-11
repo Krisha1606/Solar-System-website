@@ -71,52 +71,19 @@
         </div>
     </div>
 
-    <!-- Footer Mockup -->
-    <div class="bottom-info">
-        <p>© 2026 Solar System Explorer | Real-time NASA Data</p>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="js/data-fetcher.js"></script>
-    <script src="js/space-engine.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const engine = new SpaceEngine('orbit-3d-container', {
-                showOrbits: true,
-                timeScale: 100,
-                autoRotate: false // Disable auto-rotate for manual navigation
-            });
-            engine.syncWithJPL();
-
-            // UI Interaction
-            const speedSlider = document.getElementById('speed-slider');
-            const speedVal = document.getElementById('speed-val');
-            speedSlider.addEventListener('input', (e) => {
-                engine.options.timeScale = e.target.value;
-                speedVal.textContent = e.target.value + 'x';
-            });
-
-            const targetSelect = document.getElementById('target-select');
-            targetSelect.addEventListener('change', (e) => {
-                engine.focusBody(e.target.value);
-            });
-            
-            // Continuous stat update
-            setInterval(() => {
-                const targetName = targetSelect.value;
-                if (targetName !== 'Sun') {
-                    const planet = engine.planets[targetName];
-                    if (planet) {
-                        const distKm = Math.sqrt(planet.position.x**2 + planet.position.z**2) * 1e6;
-                        document.getElementById('stat-dist').textContent = (distKm / 1e6).toFixed(2);
-                    }
-                } else {
-                    document.getElementById('stat-dist').textContent = "0.00";
-                }
-            }, 100);
-        });
     </script>
+
+    <!-- 6. FOOTER SECTION -->
+    <footer class="minimalist-footer">
+        <div class="footer-content">
+            <p>Designed & Developed by <span style="color: #66b3ff; font-weight: 500;">Krisha Vaghani</span></p>
+            <div class="footer-links">
+                <a href="home.html#about">About</a>
+                <a href="Planets.html">Planets</a>
+                <a href="quiz.html">Quiz</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 
