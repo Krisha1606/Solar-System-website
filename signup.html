@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solar System Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <main class="container">
+    <section class="signup-section" aria-label="Sign up form">
+      <h1 class="title">SOLAR SYSTEM EXPLORER</h1>
+      <p class="welcome">Join our cosmic community and start your interstellar journey today.</p>
+      <form class="signup-form" autocomplete="off" aria-label="Sign up form">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required autocomplete="name" />
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" />
+        
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" required autocomplete="new-password" aria-describedby="togglePassword" />
+          <button type="button" id="togglePassword" aria-label="Show password" tabindex="0">
+            <svg id="eyeIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password" aria-describedby="toggleConfirmPassword" />
+          <button type="button" id="toggleConfirmPassword" aria-label="Show confirm password" tabindex="0">
+            <svg id="eyeIconConfirm" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms" class="checkbox-label">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></label>
+        </div>
+        
+        <button type="submit" class="signup-btn">Create Account</button>
+      </form>
+      <div class="login-link">
+        <span>Already have an account?</span> <a href="#">Log In</a>
+      </div>
+    </section>
+    <div class="image-section"></div>
+    <section class="space-section" aria-label="Space background" role="presentation">
+      <div class="stars">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+  </main>
+  <script src="signup.js"></script>
+</body>
+</html>
